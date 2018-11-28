@@ -23,10 +23,10 @@
 {
     "name": "UPOFURGO",
     "version": "1.0",
-    "depends": ["base"],
-    "author": "Grupo 1",
     "category": "Empresa",
     "description": "Empresa de transporte",
+    "author": "Grupo 1",
+    "depends": ["base"],
     "init_xml": [],
     'update_xml': [],
     'data' : ['Destinatario_view.xml'],

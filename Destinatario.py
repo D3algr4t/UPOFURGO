@@ -33,6 +33,7 @@ class Destinatario(osv.Model):
            'nombre': fields.char('Nombre', size=128),
            'direccion': fields.char('Direccion',size=128),
            'codigoPostal': fields.integer('Codigo Postal'),
-           'telefonoContacto': fields.char('Telefono', size=13),
+           'telefonoContacto': fields.char('Telefono Contacto', size=13),
            'email': fields.char( 'Email', size=128),
+           "envio_id": fields.one2many('Envio', 'destinatario_id', 'Envios'),
         }
