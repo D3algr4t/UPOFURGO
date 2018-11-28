@@ -20,19 +20,17 @@
 #
 ##############################################################################
 
-from osv import osv
-from osv import fields
-
-class Destinatario(osv.Model):
-    
-    _name = 'Destinatario'
-    _description = 'clase Destinatario'
- 
-    _columns = {
-           'dni': fields.integer('DNI'),
-           'nombre': fields.char('Nombre', size=128),
-           'direccion': fields.char('Direccion',size=128),
-           'codigoPostal': fields.integer('Codigo Postal'),
-           'telefonoContacto': fields.char('Telefono', size=13),
-           'email': fields.char( 'Email', size=128),
-        }
+{
+    "name": "UPOFURGO",
+    "version": "1.0",
+    "depends": ["base"],
+    "author": "Grupo 1",
+    "category": "Empresa",
+    "description": "Empresa de transporte",
+    "init_xml": [],
+    'update_xml': [],
+    'data' : ['Destinatario_view.xml'],
+    'demo_xml': [],
+    'installable': True,
+    'active': False,
+}
