@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+		<!--  Definicion de vistas -->
+		
+		<!--  Tree view -->
+		<record model="ir.ui.view" id="view_destinatarios_tree">
+ 			<field name="name">view_destinatarios_tree</field>
+ 			<field name="model">destinatario</field>
+ 			<field name="type">tree</field>
+ 			<field name="arch" type="xml">
+ 				<tree string="Destinatarios">
+ 					<field name="dni" />
+ 					<field name="nombre" />
+ 					<field name="direccion" />
+ 					<field name="codigoPostal" />
+ 					<field name="telefonoContacto" />
+ 					<field name="email" />
+ 				</tree>
+ 			</field>
+ 		</record>
+ 		
+ 		<!--  Form view -->
+		<record model="ir.ui.view" id="view_destinatarios_form">
+ 			<field name="name">view_destinatarios_form</field>
+ 			<field name="model">destinatario</field>
+ 			<field name="type">form</field>
+ 			<field name="arch" type="xml">
+ 				<form string="Destinatarios">
+ 					<field name="dni" />
+ 					<field name="nombre" />
+ 					<field name="direccion" />
+ 					<field name="codigoPostal" />
+ 					<field name="telefonoContacto" />
+ 					<field name="email" />
+ 					<field name="envio_id" mode="tree">
+ 						<tree>
+ 							<field name="dni"/>
+ 							<field name="estadoEnvio"/>
+ 						</tree>
+ 					</field>
+ 				</form>
+ 			</field>
+ 		</record>
+		
+		
+		<!--  Definicion de actions -->
+		
+		<record id="act_destinatarios" model="ir.actions.act_window">
+			<field name="name">Destinatarios</field>
+			<field name="res_model">destinatario</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree, form</field>
+		</record>
+		
+		<!--  Definicion de menus -->
+		
+		<menuitem id="upofurgo" name="UPOFURGO" action=act_upofurgo" />
+		<menuitem id="upofurgo_submenu" name="UPOFURGO" parent="upofurgo" />
+		<menuitem id="destinatarios" name="Destinatarios" parent="upofurgo_submenu" action="act_destinatarios" />
 		
 	</data>
 </openerp> 
