@@ -1,3 +1,4 @@
+
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -20,17 +21,20 @@
 #
 ##############################################################################
 
-{
-    "name": "UPOFURGO",
-    "version": "1.0",
-    "category": "Empresa",
-    "description": "Empresa de transporte",
-    "author": "Grupo 1",
-    "depends": ["base"],
-    "init_xml": [],
-    'update_xml': [],
-    'data' : ['destinatario_view.xml','envio_view.xml'],
-    'demo_xml': [],
-    'installable': True,
-    'active': False,
-}
+
+from osv import osv
+from osv import fields
+
+class Envio(osv.Model):
+    _name = 'envio'
+    _description = 'clase envio'
+ 
+    _columns = {
+            'id': fields.integer('ID'),
+            'tipoDeEnvio': fields.char('Tipo de Envio', size=128),
+            'estadoEnvio': fields.char('Estado de Envio',size=128),
+            'fechaEnvio': fields.date('Fecha Envio'),
+            'fechaEstimadaEntrega': fields.date('Fecha Estimada de  Entrega'),
+           
+            "destinatario_id": fields.many2one('Destinatario', 'Destinatario'),
+        }

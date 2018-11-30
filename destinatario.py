@@ -20,17 +20,21 @@
 #
 ##############################################################################
 
-{
-    "name": "UPOFURGO",
-    "version": "1.0",
-    "category": "Empresa",
-    "description": "Empresa de transporte",
-    "author": "Grupo 1",
-    "depends": ["base"],
-    "init_xml": [],
-    'update_xml': [],
-    'data' : ['destinatario_view.xml','envio_view.xml'],
-    'demo_xml': [],
-    'installable': True,
-    'active': False,
-}
+from osv import osv
+from osv import fields
+
+class Destinatario(osv.Model):
+    
+    _name = 'destinatario'
+    _description = 'clase destinatario'
+ 
+    _columns = {
+           'dni': fields.integer('DNI'),
+           'nombre': fields.char('Nombre', size=128),
+           'direccion': fields.char('Direccion',size=128),
+           'codigoPostal': fields.integer('Codigo postal'),
+           'telefonoContacto': fields.char('Telefono contacto', size=13),
+           'email': fields.char( 'Email', size=128),
+           
+           "envio_id": fields.one2many('Envio', 'destinatario_id', 'Envios'),
+        }
