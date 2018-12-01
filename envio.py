@@ -29,10 +29,10 @@ class envio(osv.Model):
     _columns = {
             'id': fields.integer('ID'),
             'tipoDeEnvio': fields.selection([
-        ('express','Express'),#dance
-        ('lowCost','Lowcost'),#aerobic
-        ('largaDistancia','LargaDistancia'),#anaerobic
-        ('especial','Especial'),#relax
+        ('express','Express'),
+        ('lowCost','Lowcost'),
+        ('largaDistancia','LargaDistancia'),
+        ('especial','Especial'),
         ],'Tipo de Envio'),
             'estadoEnvio': fields.char('Estado de Envio',size=128),
             'fechaEnvio': fields.date('Fecha Envio'),
