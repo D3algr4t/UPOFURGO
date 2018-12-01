@@ -29,7 +29,7 @@
     "depends": ["base"],
     "init_xml": [],
     'update_xml': [],
-    'data' : ['Destinatario_view.xml','envio_view.xml'],
+    'data' : ['destinatario_view.xml','envio_view.xml'],
     'demo_xml': [],
     'installable': True,
     'active': False,
