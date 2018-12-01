@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upofurgo_transportista_form">
+			<field name="name">transportista.form</field>
+			<field name="model">transportista</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Classes">
+					<field name="dni" colspan="4" />
+					<field name="nombre" colspan="4" />
+					<field name="telefonoMovil" colspan="4" />
+					<field name="envio_id" colspan="4" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="object_transportista_tree_view">
+			<field name="name">transportista.tree</field>
+			<field name="model">transportista</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="dni" />
+					<field name="nombre" />
+					<field name="telefonoMovil" />
+					<field name="envio_id" />
+				</tree>
+			</field>
+		</record>
+		<record id="act_transportistas" model="ir.actions.act_window">
+			<field name="name">transportistas</field>
+			<field name="res_model">transportista</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="transportistas_submenu" name="transportistas"
+			parent="upofurgo" />
+		<menuitem id="ver_transportistas_submenu" name="Ver transportistas"
+			parent="transportistas_submenu" action="act_transportistas" />
+	</data>
+</openerp> 

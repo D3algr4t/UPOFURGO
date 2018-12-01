@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upofurgo_empresaRepartidora_form">
+ 			<field name="name">empresaRepartidora.form</field>
+ 			<field name="model">empresaRepartidora</field>
+ 			<field name="type">form</field>
+ 			<field name="arch" type="xml">
+ 				<form string="Classes">
+ 					<field name="dif" colspan="4"/>
+ 					<field name="nombre" colspan="4"/>
+ 					<field name="direccion" colspan="4"/>
+ 					<field name="direccionSede" colspan="4"/>
+ 					<field name="finContrato" colspan="4"/>
+ 					<field name="transportista_id" colspan="4"/>
+ 				</form>
+ 			</field>
+ 		</record>
+		<record model="ir.ui.view" id="object_empresaRepartidora_tree_view">
+ 			<field name="name">empresaRepartidora.tree</field>
+ 			<field name="model">empresaRepartidora</field>
+ 			<field name="type">tree</field>
+ 			<field name="arch" type="xml">
+ 				<tree string="tree_string">
+ 					<field name="cif" />
+ 					<field name="nombre" />
+ 					<field name="direccion" />
+ 					<field name="direccionSede" />
+ 					<field name="finContrato" />
+ 					<field name="transportista_id"/>
+ 				</tree>
+ 			</field>
+ 		</record>
+		<record id="act_empresaRepartidoras" model="ir.actions.act_window">
+			<field name="name">empresaRepartidoras</field>
+			<field name="res_model">empresaRepartidora</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="empresaRepartidoras_submenu" name="empresaRepartidoras" parent="upofurgo" />
+		<menuitem id="ver_empresaRepartidoras_submenu" name="Ver empresaRepartidoras" parent="empresaRepartidoras_submenu" 
+			action="act_empresaRepartidoras" />
+	</data>
+</openerp> 
