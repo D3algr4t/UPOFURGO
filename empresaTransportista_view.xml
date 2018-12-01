@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="view_upofurgo_empresaTransportista_form">
- 			<field name="name">empresaTransportista.form</field>
- 			<field name="model">empresaTransportista</field>
+		<record model="ir.ui.view" id="view_upofurgo_empresa_transportista_form">
+ 			<field name="name">empresa_transportista.form</field>
+ 			<field name="model">empresa_transportista</field>
  			<field name="type">form</field>
  			<field name="arch" type="xml">
  				<form string="Classes">
@@ -16,9 +16,9 @@
  				</form>
  			</field>
  		</record>
-		<record model="ir.ui.view" id="object_empresaTransportista_tree_view">
- 			<field name="name">empresaTransportista.tree</field>
- 			<field name="model">empresaTransportista</field>
+		<record model="ir.ui.view" id="object_empresa_transportista_tree_view">
+ 			<field name="name">empresa_transportista.tree</field>
+ 			<field name="model">empresa_transportista</field>
  			<field name="type">tree</field>
  			<field name="arch" type="xml">
  				<tree string="tree_string">
@@ -31,9 +31,9 @@
  				</tree>
  			</field>
  		</record>
-		<record id="act_empresaTransportistas" model="ir.actions.act_window">
-			<field name="name">empresaTransportistas</field>
-			<field name="res_model">empresaTransportista</field>
+		<record id="act_empresa_transportistas" model="ir.actions.act_window">
+			<field name="name">empresa_transportistas</field>
+			<field name="res_model">empresa_transportista</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
