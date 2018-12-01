@@ -39,4 +39,5 @@ class envio(osv.Model):
             'fechaEstimadaEntrega': fields.datetime('Fecha Estimada de  Entrega', required=True, autodate = True),
            
             'destinatario_id': fields.many2one('destinatario', 'Destinatario'),
+            'transportista_id': fields.many2one('transportista', 'Transportista'),
         }

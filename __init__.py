@@ -20,5 +20,7 @@
 #
 ##############################################################################
 
+import empresaTransportista
 import destinatario
+import transportista
 import envio

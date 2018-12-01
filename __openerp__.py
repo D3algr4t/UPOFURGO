@@ -28,7 +28,7 @@
     "author": "Grupo 1",
     "depends": ["base"],
     "init_xml": [],
-    'update_xml': ['envio_view.xml','destinatario_view.xml'],
+    'update_xml': ['envio_view.xml','empresarepartidora_view','destinatario_view.xml','transportista_view.xml'],
     'data' : [],
     'demo_xml': [],
     'installable': True,
