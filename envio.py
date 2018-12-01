@@ -38,5 +38,5 @@ class envio(osv.Model):
             'fechaEnvio': fields.date('Fecha Envio'),
             'fechaEstimadaEntrega': fields.date('Fecha Estimada de  Entrega'),
            
-            #"destinatario_id": fields.many2one('Destinatario', 'Destinatario'),
+            'destinatario_id': fields.one2many('destinatario','envio_id', 'Destinatario'),
         }

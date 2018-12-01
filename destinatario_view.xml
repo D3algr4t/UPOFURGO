@@ -37,7 +37,6 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		
 		<menuitem id="destinatarios_submenu" name="Destinatarios" parent="upofurgo" />
 		<menuitem id="ver_destinatarios_submenu" name="Ver destinatarios" parent="destinatarios_submenu" 
 			action="act_destinatarios" />

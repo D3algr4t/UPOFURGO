@@ -33,7 +33,7 @@
 			<field name="name">Envios Upofugo</field>
 			<field name="res_model">envio</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,calendar</field>
 		</record>
 		<menuitem id="upofurgo" name="Upofurgo" action="act_envio" />
 		<menuitem name="Envios" id="envios_submenu" parent="upofurgo"
