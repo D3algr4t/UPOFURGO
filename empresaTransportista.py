@@ -25,7 +25,7 @@ from osv import fields
 
 class empresatransportista(osv.Model):
     _name = 'empresa_transportista'
-    _description = 'clase emrpesatransportista'
+    _description = 'clase empresatransportista'
     _columns = {
             'cif': fields.char('CIF', size=50),
             'nombre': fields.char('Nombre', size=128),
