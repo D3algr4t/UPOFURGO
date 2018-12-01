@@ -23,16 +23,22 @@
 from osv import osv
 from osv import fields
 
-class Envio(osv.Model):
+
+class envio(osv.Model):
     _name = 'envio'
     _description = 'clase envio'
  
     _columns = {
             'id': fields.integer('ID'),
-            'tipoDeEnvio': fields.char('Tipo de Envio', size=128),
+            'tipoDeEnvio': fields.selection([
+        ('express','Express'),#dance
+        ('lowCost','Lowcost'),#aerobic
+        ('largaDistancia','LargaDistancia'),#anaerobic
+        ('especial','Especial'),#relax
+        ],'Tipo de Envio'),
             'estadoEnvio': fields.char('Estado de Envio',size=128),
             'fechaEnvio': fields.date('Fecha Envio'),
             'fechaEstimadaEntrega': fields.date('Fecha Estimada de  Entrega'),
            
-            "destinatario_id": fields.many2one('Destinatario', 'Destinatario'),
+            #"destinatario_id": fields.many2one('Destinatario', 'Destinatario'),
         }
