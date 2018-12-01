@@ -35,8 +35,9 @@ class envio(osv.Model):
                 ('especial','Especial'),
                 ],'Tipo de Envio'),
             'estadoEnvio': fields.char('Estado de Envio',size=128),
-            'fechaEnvio': fields.date('Fecha Envio'),
-            'fechaEstimadaEntrega': fields.date('Fecha Estimada de  Entrega'),
+            'fechaEnvio': fields.datetime('Fecha Envio', required=True, autodate = True),
+            'fechaEstimadaEntrega': fields.datetime('Fecha Estimada de  Entrega', required=True, autodate = True),
            
             'destinatario_id': fields.many2one('destinatario', 'Destinatario'),
+            'transportista_id': fields.many2one('transportista', 'Transportista'),
         }

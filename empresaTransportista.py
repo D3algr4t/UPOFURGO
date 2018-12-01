@@ -20,7 +20,18 @@
 #
 ##############################################################################
 
-import empresaTransportista
-import destinatario
-import transportista
-import envio
+from osv import osv
+from osv import fields
+
+class empresaTransportista(osv.Model):
+    _name = 'empresaTransportista'
+    _description = 'clase emrpesaTransportista'
+    _columns = {
+            'cif': fields.char('CIF', size=50),
+            'nombre': fields.char('Nombre', size=128),
+            'direccion': fields.char('Direccion',size=128),
+            'direccionSede': fields.char('Direccion Sede',size=128),
+            'finContrato': fields.datetime('Fin Contrato', required=True, autodate = True),
+            
+            'transportista_id': fields.one2many('transportista','empresa_id', 'Empleados'),
+        }

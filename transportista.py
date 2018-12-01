@@ -20,7 +20,17 @@
 #
 ##############################################################################
 
-import empresaTransportista
-import destinatario
-import transportista
-import envio
+from osv import osv
+from osv import fields
+
+class transportista(osv.Model):
+    _name = 'transportista'
+    _description = 'clase transportista'
+    _columns = {
+            'dni': fields.char('DNI', size=50),
+            'nombre': fields.char('Nombre', size=128),
+            'telefonoMovil': fields.char('Telefono contacto', size=13),
+            
+            'envio_id': fields.one2many('envio','transportista_id', 'Envios'),
+            'empresa_id': fields.many2one('empresaTransportista', 'Empresa'),
+        }
