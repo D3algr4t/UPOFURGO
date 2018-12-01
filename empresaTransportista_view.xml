@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="view_upofurgo_empresaRepartidora_form">
- 			<field name="name">empresaRepartidora.form</field>
- 			<field name="model">empresaRepartidora</field>
+		<record model="ir.ui.view" id="view_upofurgo_empresaTransportista_form">
+ 			<field name="name">empresaTransportista.form</field>
+ 			<field name="model">empresaTransportista</field>
  			<field name="type">form</field>
  			<field name="arch" type="xml">
  				<form string="Classes">
@@ -16,9 +16,9 @@
  				</form>
  			</field>
  		</record>
-		<record model="ir.ui.view" id="object_empresaRepartidora_tree_view">
- 			<field name="name">empresaRepartidora.tree</field>
- 			<field name="model">empresaRepartidora</field>
+		<record model="ir.ui.view" id="object_empresaTransportista_tree_view">
+ 			<field name="name">empresaTransportista.tree</field>
+ 			<field name="model">empresaTransportista</field>
  			<field name="type">tree</field>
  			<field name="arch" type="xml">
  				<tree string="tree_string">
@@ -31,14 +31,14 @@
  				</tree>
  			</field>
  		</record>
-		<record id="act_empresaRepartidoras" model="ir.actions.act_window">
-			<field name="name">empresaRepartidoras</field>
-			<field name="res_model">empresaRepartidora</field>
+		<record id="act_empresaTransportistas" model="ir.actions.act_window">
+			<field name="name">empresaTransportistas</field>
+			<field name="res_model">empresaTransportista</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		<menuitem id="empresaRepartidoras_submenu" name="empresaRepartidoras" parent="upofurgo" />
-		<menuitem id="ver_empresaRepartidoras_submenu" name="Ver empresaRepartidoras" parent="empresaRepartidoras_submenu" 
-			action="act_empresaRepartidoras" />
+		<menuitem id="empresaTransportistas_submenu" name="empresaTransportistas" parent="upofurgo" />
+		<menuitem id="ver_empresaTransportistas_submenu" name="Ver empresaTransportistas" parent="empresaTransportistas_submenu" 
+			action="act_empresaTransportistas" />
 	</data>
 </openerp> 
