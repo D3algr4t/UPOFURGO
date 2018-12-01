@@ -27,6 +27,21 @@
 				</tree>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="view_upofurgo_transportista_search">
+			<field name="name">view_upofurgo_transportista_search</field>
+			<field name="model">transportista</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Transportistas">
+					<separator orientation="vertical" />
+					<field name="transportista_id" />
+					<newline />
+					<group expand='1' string='OPCIONES DE AGRUPACION..' groups="base.group_extended">
+						<filter string='empresa_id' context="{'group_by': 'empresa_id'}" />
+					</group>
+				</search>
+			</field>
+		</record>
 		<record id="act_transportistas" model="ir.actions.act_window">
 			<field name="name">transportistas</field>
 			<field name="res_model">transportista</field>
