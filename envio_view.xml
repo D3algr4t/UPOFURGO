@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record id="act_gymclass" model="ir.actions.act_window">
-			<field name="name">Gym Classes</field>
-			<field name="res_model">gymclass</field>
+		<record id="act_envio" model="ir.actions.act_window">
+			<field name="name">Envio</field>
+			<field name="res_model">Envio</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form</field>
 		</record>
-		<menuitem id="gym" name="Gym" action="act_gymclass" />
-		<menuitem name="Classes" id="gymclasses_submenu" parent="gym"
-			sequence="100" action="act_gymclass" />
+		<menuitem id="envio" name="Evio" action="act_envio" />
+		<menuitem name="Envios" id="Envios_submenu" parent="envio"
+			sequence="100" action="act_envio" />
 	</data>
 </openerp>
