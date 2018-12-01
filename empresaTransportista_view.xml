@@ -7,7 +7,7 @@
  			<field name="type">form</field>
  			<field name="arch" type="xml">
  				<form string="Classes">
- 					<field name="dif" colspan="4"/>
+ 					<field name="cif" colspan="4"/>
  					<field name="nombre" colspan="4"/>
  					<field name="direccion" colspan="4"/>
  					<field name="direccionSede" colspan="4"/>
