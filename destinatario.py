@@ -36,5 +36,5 @@ class destinatario(osv.Model):
            'telefonoContacto': fields.char('Telefono contacto', size=13),
            'email': fields.char( 'Email', size=128),
            
-           #"envio_id": fields.one2many('Envio', 'destinatario_id', 'Envios'),
+           'envio_id': fields.one2many('envio', 'Envios'),
         }
