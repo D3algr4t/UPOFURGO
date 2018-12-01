@@ -23,9 +23,9 @@
 from osv import osv
 from osv import fields
 
-class empresaTransportista(osv.Model):
-    _name = 'empresaTransportista'
-    _description = 'clase emrpesaTransportista'
+class empresatransportista(osv.Model):
+    _name = 'empresa_transportista'
+    _description = 'clase emrpesatransportista'
     _columns = {
             'cif': fields.char('CIF', size=50),
             'nombre': fields.char('Nombre', size=128),
