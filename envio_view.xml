@@ -36,7 +36,7 @@
 			<field name="model">envio</field>
 			<field name="type">calendar</field>
 			<field name="arch" type="xml">
-				<calendar string="Envios" date_start="fechaEnvio"
+				<calendar string="Envios" color="activityType" date_start="fechaEnvio"
 					date_stop="fechaEstimadaEntrega">
 					<field name="id_envio" />
 					<field name="destinatario_id" />
