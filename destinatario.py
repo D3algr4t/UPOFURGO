@@ -23,7 +23,7 @@
 from osv import osv
 from osv import fields
 
-class Destinatario(osv.Model):
+class destinatario(osv.Model):
     
     _name = 'destinatario'
     _description = 'clase destinatario'
@@ -36,5 +36,5 @@ class Destinatario(osv.Model):
            'telefonoContacto': fields.char('Telefono contacto', size=13),
            'email': fields.char( 'Email', size=128),
            
-           "envio_id": fields.one2many('Envio', 'destinatario_id', 'Envios'),
+           #"envio_id": fields.one2many('Envio', 'destinatario_id', 'Envios'),
         }

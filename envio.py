@@ -25,7 +25,7 @@
 from osv import osv
 from osv import fields
 
-class Envio(osv.Model):
+class envio(osv.Model):
     _name = 'envio'
     _description = 'clase envio'
  
@@ -36,5 +36,5 @@ class Envio(osv.Model):
             'fechaEnvio': fields.date('Fecha Envio'),
             'fechaEstimadaEntrega': fields.date('Fecha Estimada de  Entrega'),
            
-            "destinatario_id": fields.many2one('Destinatario', 'Destinatario'),
+            #"destinatario_id": fields.many2one('Destinatario', 'Destinatario'),
         }

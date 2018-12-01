@@ -9,7 +9,7 @@
  			<field name="model">destinatario</field>
  			<field name="type">tree</field>
  			<field name="arch" type="xml">
- 				<tree string="Destinatarios">
+ 				<tree string="tree_string"><!-- aqui modifico -->
  					<field name="dni" />
  					<field name="nombre" />
  					<field name="direccion" />
@@ -20,13 +20,42 @@
  			</field>
  		</record>
  		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
  		<!--  Form view -->
 		<record model="ir.ui.view" id="view_destinatarios_form">
  			<field name="name">view_destinatarios_form</field>
  			<field name="model">destinatario</field>
  			<field name="type">form</field>
  			<field name="arch" type="xml">
- 				<form string="Destinatarios">
+ 				<form string="destinatarios">
  					<field name="dni" />
  					<field name="nombre" />
  					<field name="direccion" />
@@ -47,17 +76,17 @@
 		<!--  Definicion de actions -->
 		
 		<record id="act_destinatarios" model="ir.actions.act_window">
-			<field name="name">Destinatarios</field>
+			<field name="name">destinatarios</field>
 			<field name="res_model">destinatario</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree, form</field>
+			<field name="view_mode">form,tree</field>
 		</record>
 		
 		<!--  Definicion de menus -->
 		
 		<menuitem id="upofurgo" name="UPOFURGO" action=act_upofurgo" />
 		<menuitem id="upofurgo_submenu" name="UPOFURGO" parent="upofurgo" />
-		<menuitem id="destinatarios" name="Destinatarios" parent="upofurgo_submenu" action="act_destinatarios" />
+		<menuitem id="destinatarios" name="destinatarios" parent="upofurgo_submenu" action="act_destinatarios" />
 		
 	</data>
 </openerp> 
