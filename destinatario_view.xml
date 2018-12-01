@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<!--  Definicion de vistas -->
-		
-		<!--  Tree view -->
-		<record model="ir.ui.view" id="view_destinatarios_tree">
- 			<field name="name">view_destinatarios_tree</field>
+		<record model="ir.ui.view" id="view_upofurgo_destinatario_form">
+ 			<field name="name">destinatario.form</field>
+ 			<field name="model">destinatario</field>
+ 			<field name="type">form</field>
+ 			<field name="arch" type="xml">
+ 				<form string="Classes">
+ 					<field name="dni" />
+ 					<field name="nombre" />
+ 					<field name="direccion" />
+ 					<field name="codigoPostal" />
+ 					<field name="telefonoContacto" />
+ 					<field name="email" />
+ 				</form>
+ 			</field>
+ 		</record>
+		<record model="ir.ui.view" id="object_destinatario_tree_view">
+ 			<field name="name">destinatario.tree</field>
  			<field name="model">destinatario</field>
  			<field name="type">tree</field>
  			<field name="arch" type="xml">
- 				<tree string="tree_string"><!-- aqui modifico -->
+ 				<tree string="tree_string">
  					<field name="dni" />
  					<field name="nombre" />
  					<field name="direccion" />
@@ -19,37 +31,6 @@
  				</tree>
  			</field>
  		</record>
- 		
- 		
- 		
- 		
- 		
- 		<!--  Form view -->
-		<record model="ir.ui.view" id="view_destinatarios_form">
- 			<field name="name">view_destinatarios_form</field>
- 			<field name="model">destinatario</field>
- 			<field name="type">form</field>
- 			<field name="arch" type="xml">
- 				<form string="destinatarios">
- 					<field name="dni" />
- 					<field name="nombre" />
- 					<field name="direccion" />
- 					<field name="codigoPostal" />
- 					<field name="telefonoContacto" />
- 					<field name="email" />
- 					<field name="envio_id" mode="tree">
- 						<tree>
- 							<field name="dni"/>
- 							<field name="estadoEnvio"/>
- 						</tree>
- 					</field>
- 				</form>
- 			</field>
- 		</record>
-		
-		
-		<!--  Definicion de actions -->
-		
 		<record id="act_destinatarios" model="ir.actions.act_window">
 			<field name="name">destinatarios</field>
 			<field name="res_model">destinatario</field>
@@ -57,11 +38,8 @@
 			<field name="view_mode">form,tree</field>
 		</record>
 		
-		<!--  Definicion de menus -->
-		
-		<menuitem id="upofurgo" name="UPOFURGO" action=act_upofurgo" />
-		<menuitem id="upofurgo_submenu" name="UPOFURGO" parent="upofurgo" />
-		<menuitem id="destinatarios" name="destinatarios" parent="upofurgo_submenu" action="act_destinatarios" />
-		
+		<menuitem id="destinatarios_submenu" name="Destinatarios" parent="upofurgo" />
+		<menuitem id="ver_destinatarios_submenu" name="Ver destinatarios" parent="destinatarios_submenu" 
+			action="act_destinatarios" />
 	</data>
 </openerp> 

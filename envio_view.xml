@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="view_gym_gymclass_form">
+		<record model="ir.ui.view" id="view_upofurgo_envio_form">
 			<field name="name">envio.form</field>
 			<field name="model">envio</field>
 			<field name="type">form</field>
@@ -36,7 +36,9 @@
 			<field name="view_mode">form,tree</field>
 		</record>
 		<menuitem id="upofurgo" name="Upofurgo" action="act_envio" />
-		<menuitem name="Envio2" id="envios_submenu" parent="upofurgo"
+		<menuitem name="Envios" id="envios_submenu" parent="upofurgo"
 			sequence="100" action="act_envio" />
+		<menuitem name="Ver envios" id="ver_envios_submenu" parent="envios_submenu"
+			sequence="130" action="act_envio" />
 	</data>
 </openerp>

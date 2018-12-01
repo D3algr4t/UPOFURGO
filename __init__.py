@@ -20,5 +20,5 @@
 #
 ##############################################################################
 
-#import destinatario
+import destinatario
 import envio
