@@ -7,11 +7,12 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Classes">
-					<field name="id" />
+					<field name="id_envio" />
 					<field name="tipoDeEnvio" />
 					<field name="estadoEnvio" />
 					<field name="fechaEnvio" />
 					<field name="fechaEstimadaEntrega" />
+					<field name="destinatario_id" />
 				</form>
 			</field>
 		</record>
@@ -21,12 +22,25 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
-					<field name="id" />
+					<field name="id_envio" />
 					<field name="tipoDeEnvio" />
 					<field name="estadoEnvio" />
 					<field name="fechaEnvio" />
 					<field name="fechaEstimadaEntrega" />
+					<field name="destinatario_id" />
 				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upofurgo_envio_calendar">
+			<field name="name">envio.calendar</field>
+			<field name="model">envio</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Envios" date_start="fechaEnvio"
+					date_stop="fechaEstimadaEntrega">
+					<field name="id_envio" />
+					<field name="destinatario_id" />
+				</calendar>
 			</field>
 		</record>
 		<record id="act_envio" model="ir.actions.act_window">

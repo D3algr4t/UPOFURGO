@@ -27,16 +27,16 @@ class envio(osv.Model):
     _name = 'envio'
     _description = 'clase envio'
     _columns = {
-            'id': fields.integer('ID'),
+            'id_envio': fields.integer('ID'),
             'tipoDeEnvio': fields.selection([
-        ('express','Express'),
-        ('lowCost','Lowcost'),
-        ('largaDistancia','LargaDistancia'),
-        ('especial','Especial'),
-        ],'Tipo de Envio'),
+                ('express','Express'),
+                ('lowCost','Lowcost'),
+                ('largaDistancia','LargaDistancia'),
+                ('especial','Especial'),
+                ],'Tipo de Envio'),
             'estadoEnvio': fields.char('Estado de Envio',size=128),
-            'fechaEnvio': fields.date('Fecha Envio'),
-            'fechaEstimadaEntrega': fields.date('Fecha Estimada de  Entrega'),
+            'fechaEnvio': fields.datetime('Fecha Envio', required=True, autodate = True),
+            'fechaEstimadaEntrega': fields.datetime('Fecha Estimada de  Entrega', required=True, autodate = True),
            
-            'destinatario_id': fields.one2many('destinatario','envio_id', 'Destinatario'),
+            'destinatario_id': fields.many2one('destinatario', 'Destinatario'),
         }
