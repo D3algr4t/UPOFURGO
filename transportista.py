@@ -32,5 +32,5 @@ class transportista(osv.Model):
             'telefonoMovil': fields.char('Telefono contacto', size=13),
             
             'envio_id': fields.one2many('envio','transportista_id', 'Envios'),
-            'empresa_id': fields.many2one('empresaTransportista', 'Empresa'),
+            'empresa_id': fields.many2one('empresa_transportista', 'Empresa'),
         }
