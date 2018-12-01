@@ -29,12 +29,11 @@ class destinatario(osv.Model):
     _description = 'clase destinatario'
  
     _columns = {
-           'dni': fields.integer('DNI'),
+           'dni': fields.char('DNI', size=50),
            'nombre': fields.char('Nombre', size=128),
            'direccion': fields.char('Direccion',size=128),
            'codigoPostal': fields.integer('Codigo postal'),
            'telefonoContacto': fields.char('Telefono contacto', size=13),
-           'email': fields.char( 'Email', size=128),
            
-           'envio_id': fields.one2many('envio', 'Envios'),
+           'envio_id': fields.one2many('envio','destinatario_id', 'Envios'),
         }
