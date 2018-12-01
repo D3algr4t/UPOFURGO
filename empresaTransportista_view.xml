@@ -37,8 +37,8 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		<menuitem id="empresaTransportistas_submenu" name="empresaTransportistas" parent="upofurgo" />
-		<menuitem id="ver_empresaTransportistas_submenu" name="Ver empresaTransportistas" parent="empresaTransportistas_submenu" 
-			action="act_empresaTransportistas" />
+		<menuitem id="empresa_transportistas_submenu" name="empresa_transportistas" parent="upofurgo" />
+		<menuitem id="ver_empresa_transportistas_submenu" name="Ver empresa_transportistas" parent="empresa_transportistas_submenu" 
+			action="act_empresa_transportistas" />
 	</data>
 </openerp> 
