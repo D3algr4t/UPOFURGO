@@ -1,47 +1,42 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="view_upofurgo_envio_form">
-			<field name="name">view_upofurgo_envio_form</field>
+		<record model="ir.ui.view" id="view_gym_gymclass_form">
+			<field name="name">envio.form</field>
 			<field name="model">envio</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Classes">
-					<field name="id" colspan="4" />
+					<field name="id" />
 					<field name="tipoDeEnvio" />
-					<field name="estadoENvio" />
+					<field name="estadoEnvio" />
 					<field name="fechaEnvio" />
 					<field name="fechaEstimadaEntrega" />
-					
-					</field>
 				</form>
 			</field>
 		</record>
-		<record model="ir.ui.view" id="view_upofurgo_tree_view">
-			<field name="name">view_upofurgo_envio_tree</field>
+		<record model="ir.ui.view" id="object_envio_tree_view">
+			<field name="name">envio.tree</field>
 			<field name="model">envio</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
-					<field name="id" colspan="4" />
+					<field name="id" />
 					<field name="tipoDeEnvio" />
-					<field name="estadoENvio" />
+					<field name="estadoEnvio" />
 					<field name="fechaEnvio" />
 					<field name="fechaEstimadaEntrega" />
 				</tree>
 			</field>
 		</record>
 		<record id="act_envio" model="ir.actions.act_window">
-			<field name="name">Envios</field>
+			<field name="name">Envios Upofugo</field>
 			<field name="res_model">envio</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
 		<menuitem id="upofurgo" name="Upofurgo" action="act_envio" />
-		<menuitem name="Envios" id="envios_submenu" parent="upofurgo"
-			sequence="120" />
-		<menuitem name="Ver envios" id="ver_envios_submenu" parent="envios_submenu"
-			sequence="130" action="act_envio" />
+		<menuitem name="Envio2" id="envios_submenu" parent="upofurgo"
+			sequence="100" action="act_envio" />
 	</data>
 </openerp>

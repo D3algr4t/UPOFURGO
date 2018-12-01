@@ -26,7 +26,6 @@ from osv import fields
 class envio(osv.Model):
     _name = 'envio'
     _description = 'clase envio'
- 
     _columns = {
             'id': fields.integer('ID'),
             'tipoDeEnvio': fields.selection([

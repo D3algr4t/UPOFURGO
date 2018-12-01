@@ -24,31 +24,6 @@
  		
  		
  		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
- 		
  		<!--  Form view -->
 		<record model="ir.ui.view" id="view_destinatarios_form">
  			<field name="name">view_destinatarios_form</field>
