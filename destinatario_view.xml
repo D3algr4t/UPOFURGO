@@ -31,6 +31,18 @@
  				</tree>
  			</field>
  		</record>
+ 		<record model="ir.ui.view" id="view_upofurgo_destinatario_search">
+			<field name="name">view_upofurgo_destinatario_search</field>
+			<field name="model">destinatario</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Destinatario">
+					<group expand='0' string='Agrupar por...'>
+						<filter string='Código Postal' context="{'group_by':'codigoPostal'}" />
+					</group>
+				</search>
+			</field>
+		</record>
 		<record id="act_destinatarios" model="ir.actions.act_window">
 			<field name="name">destinatarios</field>
 			<field name="res_model">destinatario</field>
