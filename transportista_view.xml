@@ -45,7 +45,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		<menuitem id="transportistas_submenu" name="transportistas"
+		<menuitem id="transportistas_submenu" name="Transportistas"
 			parent="upofurgo" />
 		<menuitem id="ver_transportistas_submenu" name="Ver transportistas"
 			parent="transportistas_submenu" action="act_transportistas" />
