@@ -1,0 +1,40 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upofurgo_bulto_form">
+ 			<field name="name">bulto.form</field>
+ 			<field name="model">bulto</field>
+ 			<field name="type">form</field>
+ 			<field name="arch" type="xml">
+ 				<form string="Classes">
+ 					<field name="identificador" colspan="4"/>
+ 					<field name="peso" colspan="4"/>
+ 					<field name="descripcion" colspan="4"/>
+ 					<field name="medidas" colspan="4"/>
+ 					<field name="envio_id" colspan="4"/>
+ 				</form>
+ 			</field>
+ 		</record>
+		<record model="ir.ui.view" id="object_bulto_tree_view">
+ 			<field name="name">bulto.tree</field>
+ 			<field name="model">bulto</field>
+ 			<field name="type">tree</field>
+ 			<field name="arch" type="xml">
+ 				<tree string="tree_string">
+ 					<field name="identificador" />
+ 					<field name="peso" />
+ 					<field name="descripcion" />
+ 					<field name="medidas" />
+ 					<field name="envio_id" />
+ 				</tree>
+ 			</field>
+ 		</record>
+		<record id="act_bulto" model="ir.actions.act_window">
+			<field name="name">bulto</field>
+			<field name="res_model">bulto</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="ver_bulto_submenu" name="Ver bultos" parent="envios_submenu" 
+			action="act_bulto" />
+	</data>
+</openerp> 

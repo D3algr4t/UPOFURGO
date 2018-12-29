@@ -29,7 +29,7 @@
     "depends": ["base"],
     "init_xml": [],
     'update_xml': [],
-    'data' : ['envio_view.xml','empresaTransportista_view.xml','destinatario_view.xml','transportista_view.xml'],
+    'data' : ['envio_view.xml','empresaTransportista_view.xml','destinatario_view.xml','transportista_view.xml','vehiculo_view.xml','licencia_view.xml','proveedor_view.xml','bulto_view.xml','parteIncidencia_view.xml'],
     'demo_xml': [],
     'installable': True,
     'active': False,

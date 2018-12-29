@@ -13,6 +13,10 @@
 					<field name="fechaEnvio" />
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
+					<field name="transportista_id" />
+					<field name="proveedor_id" />
+					<field name="bulto_id" colspan="4" />
+					<field name="parteIncidencia_id" colspan="4" />
 				</form>
 			</field>
 		</record>
@@ -28,6 +32,10 @@
 					<field name="fechaEnvio" />
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
+					<field name="transportista_id" />
+					<field name="proveedor_id" />
+					<field name="bulto_id" />
+					<field name="parteIncidencia_id" />
 				</tree>
 			</field>
 		</record>

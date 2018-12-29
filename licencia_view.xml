@@ -1,0 +1,39 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upofurgo_licencia_form">
+ 			<field name="name">licencia.form</field>
+ 			<field name="model">licencia</field>
+ 			<field name="type">form</field>
+ 			<field name="arch" type="xml">
+ 				<form string="Classes">
+ 					<field name="tipo" colspan="4"/>
+ 					<field name="fechaFinValidez" colspan="4"/>
+ 					<field name="anyosExperiencia" colspan="4"/>
+ 					<field name="transportista_id" colspan="4"/>
+ 				</form>
+ 			</field>
+ 		</record>
+		<record model="ir.ui.view" id="object_licencia_tree_view">
+ 			<field name="name">licencia.tree</field>
+ 			<field name="model">licencia</field>
+ 			<field name="type">tree</field>
+ 			<field name="arch" type="xml">
+ 				<tree string="tree_string">
+ 					<field name="tipo" />
+ 					<field name="fechaFinValidez" />
+ 					<field name="anyosExperiencia" />
+ 					<field name="transportista_id" />
+ 				</tree>
+ 			</field>
+ 		</record>
+		<record id="act_licencia" model="ir.actions.act_window">
+			<field name="name">licencia</field>
+			<field name="res_model">licencia</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="licencia_submenu" name="Licencia" parent="upofurgo" />
+		<menuitem id="ver_licencias_submenu" name="Ver Licencias" parent="licencia_submenu" 
+			action="act_licencia" />
+	</data>
+</openerp> 

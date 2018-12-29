@@ -24,3 +24,8 @@ import empresaTransportista
 import destinatario
 import transportista
 import envio
+import vehiculo
+import licencia
+import proveedor
+import bulto
+import parteIncidencia

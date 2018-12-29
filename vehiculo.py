@@ -23,16 +23,16 @@
 from osv import osv
 from osv import fields
 
-class transportista(osv.Model):
-    _name = 'transportista'
-    _description = 'clase transportista'
+class vehiculo(osv.Model):
+    
+    _name = 'vehiculo'
+    _description = 'clase vehiculo'
+ 
     _columns = {
-            'dni': fields.char('DNI', size=50),
-            'nombre': fields.char('Nombre', size=128),
-            'telefonoMovil': fields.char('Telefono contacto', size=13),
-            
-            'envio_id': fields.one2many('envio','transportista_id', 'Envios'),
-            'licencia_id': fields.one2many('licencia','transportista_id', 'licencias'),
-            'empresa_id': fields.many2one('empresa_transportista', 'Empresa'),
-            'vehiculo_id': fields.many2many('vehiculo','transp_vehic_rel','matricula','dni','Vehiculos'),
+           'modelo': fields.char('Modelo', size=50),
+           'matricula': fields.char('Matricula', size=128),
+           'fechaAdquisicion': fields.datetime('Fecha adquisicion', required=True, autodate = True),
+           'fechaProximaRevision': fields.datetime('Fecha Proxima Revision', required=True, autodate = True),
+           
+           'transportista_id': fields.many2many('transportista','transp_vehic_rel','dni','matricula','Transportistas'),
         }

@@ -1,0 +1,41 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upofurgo_proveedor_form">
+ 			<field name="name">proveedor.form</field>
+ 			<field name="model">proveedor</field>
+ 			<field name="type">form</field>
+ 			<field name="arch" type="xml">
+ 				<form string="Classes">
+ 					<field name="nombre" colspan="4"/>
+ 					<field name="direccion" colspan="4"/>
+ 					<field name="cif" colspan="4"/>
+ 					<field name="telefono" colspan="4"/>
+ 					<field name="envio_id" colspan="4"/>
+ 				</form>
+ 			</field>
+ 		</record>
+		<record model="ir.ui.view" id="object_proveedor_tree_view">
+ 			<field name="name">proveedor.tree</field>
+ 			<field name="model">proveedor</field>
+ 			<field name="type">tree</field>
+ 			<field name="arch" type="xml">
+ 				<tree string="tree_string">
+ 					<field name="nombre" />
+ 					<field name="direccion" />
+ 					<field name="cif" />
+ 					<field name="telefono" />
+ 					<field name="envio_id" />
+ 				</tree>
+ 			</field>
+ 		</record>
+		<record id="act_proveedor" model="ir.actions.act_window">
+			<field name="name">proveedor</field>
+			<field name="res_model">proveedor</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="proveedor_submenu" name="Proveedores" parent="upofurgo" />
+		<menuitem id="ver_proveedor_submenu" name="Ver proveedores" parent="proveedor_submenu" 
+			action="act_proveedor" />
+	</data>
+</openerp> 

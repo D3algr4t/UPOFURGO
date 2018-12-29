@@ -9,8 +9,10 @@
 				<form string="Classes">
 					<field name="dni" colspan="4" />
 					<field name="nombre" colspan="4" />
-					<field name="telefonoMovil" colspan="4" />
+					<field name="telefonoMovil" colspan="2" />
+					<field name="licencia_id" colspan="2" />
 					<field name="envio_id" colspan="4" />
+					<field name="vehiculo_id" colspan="4" />
 				</form>
 			</field>
 		</record>
@@ -23,7 +25,9 @@
 					<field name="dni" />
 					<field name="nombre" />
 					<field name="telefonoMovil" />
+					<field name="licencia_id" />
 					<field name="envio_id" />
+					<field name="vehiculo_id" />
 				</tree>
 			</field>
 		</record>

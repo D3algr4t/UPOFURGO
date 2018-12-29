@@ -1,0 +1,41 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upofurgo_vehiculo_form">
+ 			<field name="name">vehiculo.form</field>
+ 			<field name="model">vehiculo</field>
+ 			<field name="type">form</field>
+ 			<field name="arch" type="xml">
+ 				<form string="Classes">
+ 					<field name="modelo" colspan="4"/>
+ 					<field name="matricula" colspan="4"/>
+ 					<field name="fechaAdquisicion" colspan="4"/>
+ 					<field name="fechaProximaRevision" colspan="4"/>
+ 					<field name="transportista_id" colspan="4"/>
+ 				</form>
+ 			</field>
+ 		</record>
+		<record model="ir.ui.view" id="object_vehiculo_tree_view">
+ 			<field name="name">vehiculo.tree</field>
+ 			<field name="model">vehiculo</field>
+ 			<field name="type">tree</field>
+ 			<field name="arch" type="xml">
+ 				<tree string="tree_string">
+ 					<field name="modelo" />
+ 					<field name="matricula" />
+ 					<field name="fechaAdquisicion" />
+ 					<field name="fechaProximaRevision" />
+ 					<field name="transportista_id" />
+ 				</tree>
+ 			</field>
+ 		</record>
+		<record id="act_vehiculo" model="ir.actions.act_window">
+			<field name="name">vehiculo</field>
+			<field name="res_model">vehiculo</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="vehiculo_submenu" name="Vehiculos" parent="upofurgo" />
+		<menuitem id="ver_vehiculos_submenu" name="Ver vehiculos" parent="vehiculo_submenu" 
+			action="act_vehiculo" />
+	</data>
+</openerp> 

@@ -23,16 +23,16 @@
 from osv import osv
 from osv import fields
 
-class transportista(osv.Model):
-    _name = 'transportista'
-    _description = 'clase transportista'
+class proveedor(osv.Model):
+    
+    _name = 'proveedor'
+    _description = 'clase proveedor'
+ 
     _columns = {
-            'dni': fields.char('DNI', size=50),
-            'nombre': fields.char('Nombre', size=128),
-            'telefonoMovil': fields.char('Telefono contacto', size=13),
-            
-            'envio_id': fields.one2many('envio','transportista_id', 'Envios'),
-            'licencia_id': fields.one2many('licencia','transportista_id', 'licencias'),
-            'empresa_id': fields.many2one('empresa_transportista', 'Empresa'),
-            'vehiculo_id': fields.many2many('vehiculo','transp_vehic_rel','matricula','dni','Vehiculos'),
+           'nombre': fields.char('Nombre', size=50),
+           'direccion': fields.char('Direccion', size=128),
+           'cif': fields.char('CIF', size=50),
+           'telefono': fields.integer('Telefono', size=13),
+           
+           'envio_id': fields.one2many('envio','proveedor_id', 'Envios'),
         }
