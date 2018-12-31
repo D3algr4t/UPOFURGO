@@ -28,7 +28,7 @@ class transportista(osv.Model):
     _description = 'clase transportista'
     _columns = {
             'dni': fields.char('DNI', size=50,required=True),
-            'nombre': fields.char('Nombre', size=128),
+            'name': fields.char('Nombre', size=128),
             'telefonoMovil': fields.char('Telefono contacto', size=13),
             
             'envio_id': fields.one2many('envio','transportista_id', 'Envios'),

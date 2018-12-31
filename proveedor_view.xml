@@ -6,7 +6,7 @@
  			<field name="type">form</field>
  			<field name="arch" type="xml">
  				<form string="Classes">
- 					<field name="nombre" colspan="4"/>
+ 					<field name="name" colspan="4"/>
  					<field name="direccion" colspan="4"/>
  					<field name="cif" colspan="4"/>
  					<field name="telefono" colspan="4"/>
@@ -14,13 +14,24 @@
  				</form>
  			</field>
  		</record>
+ 			<record model="ir.ui.view" id="view_proveedor_graph">
+			<field name="name">view_proveedor_graph</field>
+			<field name="model">proveedor</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Numero de envios por proveedor" type="bar">
+					<field name="name" />
+					<field name="envios_totales" />
+				</graph>
+			</field>
+		</record> 
 		<record model="ir.ui.view" id="object_proveedor_tree_view">
  			<field name="name">proveedor.tree</field>
  			<field name="model">proveedor</field>
  			<field name="type">tree</field>
  			<field name="arch" type="xml">
  				<tree string="tree_string">
- 					<field name="nombre" />
+ 					<field name="name" />
  					<field name="direccion" />
  					<field name="cif" />
  					<field name="telefono" />
@@ -32,7 +43,7 @@
 			<field name="name">proveedor</field>
 			<field name="res_model">proveedor</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,graph</field>
 		</record>
 		<menuitem id="proveedor_submenu" name="Proveedores" parent="upofurgo" />
 		<menuitem id="ver_proveedor_submenu" name="Ver proveedores" parent="proveedor_submenu" 

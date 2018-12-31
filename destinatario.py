@@ -30,7 +30,7 @@ class destinatario(osv.Model):
  
     _columns = {
            'dni': fields.char('DNI', size=50,required=True),
-           'nombre': fields.char('Nombre', size=128),
+           'name': fields.char('Nombre', size=128),
            'direccion': fields.char('Direccion',size=128),
            'codigoPostal': fields.integer('Codigo postal'),
            'telefonoContacto': fields.char('Telefono contacto', size=13),

@@ -8,7 +8,7 @@
  			<field name="arch" type="xml">
  				<form string="Classes">
  					<field name="dni" colspan="4"/>
- 					<field name="nombre" colspan="4"/>
+ 					<field name="name" colspan="4"/>
  					<field name="direccion" colspan="4"/>
  					<field name="codigoPostal" colspan="4"/>
  					<field name="telefonoContacto" colspan="4"/>
@@ -23,7 +23,7 @@
  			<field name="arch" type="xml">
  				<tree string="tree_string">
  					<field name="dni" />
- 					<field name="nombre" />
+ 					<field name="name" />
  					<field name="direccion" />
  					<field name="codigoPostal" />
  					<field name="telefonoContacto" />

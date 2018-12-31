@@ -8,7 +8,7 @@
  			<field name="arch" type="xml">
  				<form string="Classes">
  					<field name="cif" colspan="4"/>
- 					<field name="nombre" colspan="4"/>
+ 					<field name="name" colspan="4"/>
  					<field name="direccion" colspan="4"/>
  					<field name="direccionSede" colspan="4"/>
  					<field name="finContrato" colspan="4"/>
@@ -23,7 +23,7 @@
  			<field name="arch" type="xml">
  				<tree string="tree_string">
  					<field name="cif" />
- 					<field name="nombre" />
+ 					<field name="name" />
  					<field name="direccion" />
  					<field name="direccionSede" />
  					<field name="finContrato" />
