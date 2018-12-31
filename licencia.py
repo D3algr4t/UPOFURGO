@@ -28,9 +28,9 @@ class licencia(osv.Model):
     _description = 'clase licencia'
     _columns = {
             'tipo': fields.selection([
-                ('subcontratado','Subcontratado'),
-                ('contratado','Contratado'),
-                ('indefinido','Indefinido'),
+                ('pesado','Transportes Pesados'),
+                ('ligero','Transportes Ligeros'),
+                ('alta_movilidad','Alta Movilidad'),
                 ],'Tipo de licencia'),
             'fechaFinValidez': fields.datetime('Fecha validez', required=True, autodate = True),
             'anyosExperiencia': fields.integer('Anyos Experiencia', size=13),
