@@ -29,8 +29,8 @@ class vehiculo(osv.Model):
     _description = 'clase vehiculo'
  
     _columns = {
-           'modelo': fields.char('Modelo', size=50),
-           'matricula': fields.char('Matricula', size=128),
+           'modelo': fields.char('Modelo', size=50,required=True),
+           'matricula': fields.char('Matricula', size=128,required=True),
            'fechaAdquisicion': fields.datetime('Fecha adquisicion', required=True, autodate = True),
            'fechaProximaRevision': fields.datetime('Fecha Proxima Revision', required=True, autodate = True),
            

@@ -22,25 +22,60 @@
 
 from osv import osv
 from osv import fields
+from datetime import datetime
 
 class envio(osv.Model):
     _name = 'envio'
     _description = 'clase envio'
+    
+    def _check_date_envio(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):
+                    
+            if clase.fechaEnvio < str(datetime.now().date()): 
+                return False
+        return True  
+    
+    def _check_date_entrega(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):        
+            if clase.fechaEstimadaEntrega < str(datetime.now().date()): 
+                return False
+        return True
+    
+    def _check_date_envio_entrega(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):        
+            if clase.fechaEnvio > clase.fechaEstimadaEntrega: 
+                return False
+        return True
+    
     _columns = {
-            'id_envio': fields.integer('ID'),
+            'id_envio': fields.integer('ID',required=True),
             'tipoDeEnvio': fields.selection([
                 ('express','Express'),
                 ('lowCost','Lowcost'),
                 ('largaDistancia','LargaDistancia'),
                 ('especial','Especial'),
-                ],'Tipo de Envio'),
-            'estadoEnvio': fields.char('Estado de Envio',size=128),
+                ],'Tipo de Envio',required=True),
+            'estadoEnvio': fields.selection([
+                ('preparado','Preparado'),
+                ('en_camino','En camino'),
+                ('enviado','Enviado'),
+                ('recibido','Recibido'),
+                ],'Tipo de Envio',required=True),
             'fechaEnvio': fields.datetime('Fecha Envio', required=True, autodate = True),
             'fechaEstimadaEntrega': fields.datetime('Fecha Estimada de  Entrega', required=True, autodate = True),
            
-            'destinatario_id': fields.many2one('destinatario', 'Destinatario'),
-            'transportista_id': fields.many2one('transportista', 'Transportista'),
+
+            'destinatario_id': fields.many2one('destinatario', 'Destinatario',required=True),
+            'transportista_id': fields.many2one('transportista', 'Transportista',required=True),
             'proveedor_id': fields.many2one('proveedor', 'Proveedor'),
-            'bulto_id': fields.one2many('bulto','envio_id', 'Bultos'),
+            'bulto_id': fields.one2many('bulto','envio_id', 'Bultos',required=True),
             'parteIncidencia_id': fields.one2many('parte_incidencia','envio_id', 'Partes de Incidencia'),
         }
+    
+    _constraints = [
+                    (_check_date_envio, '¡ La fecha de envio no puede ser anterior a hoy !' , [ 'fechaEnvio' ]),
+                    (_check_date_entrega, '¡ La fecha estimada de entrega no puede ser anterior a hoy !' , [ 'fechaEstimadaEntrega' ]),
+                    (_check_date_envio_entrega, '¡ La fecha de entrega no puede ser anterior a la de envio !' , [ 'fechaEstimadaEntrega' ])
+                    ]
+    
+    _sql_constraints = [ ('id_uniq', 'unique (id_envio)', 'Ya existe ese id'),  ]

@@ -31,7 +31,7 @@ class proveedor(osv.Model):
     _columns = {
            'nombre': fields.char('Nombre', size=50),
            'direccion': fields.char('Direccion', size=128),
-           'cif': fields.char('CIF', size=50),
+           'cif': fields.char('CIF', size=50,required=True),
            'telefono': fields.integer('Telefono', size=13),
            
            'envio_id': fields.one2many('envio','proveedor_id', 'Envios'),

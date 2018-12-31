@@ -27,12 +27,12 @@ class transportista(osv.Model):
     _name = 'transportista'
     _description = 'clase transportista'
     _columns = {
-            'dni': fields.char('DNI', size=50),
+            'dni': fields.char('DNI', size=50,required=True),
             'nombre': fields.char('Nombre', size=128),
             'telefonoMovil': fields.char('Telefono contacto', size=13),
             
             'envio_id': fields.one2many('envio','transportista_id', 'Envios'),
             'licencia_id': fields.one2many('licencia','transportista_id', 'licencias'),
-            'empresa_id': fields.many2one('empresa_transportista', 'Empresa'),
+            'empresa_id': fields.many2one('empresa_transportista', 'Empresa',required=True),
             'vehiculo_id': fields.many2many('vehiculo','transp_vehic_rel','matricula','dni','Vehiculos'),
         }
