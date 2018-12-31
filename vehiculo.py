@@ -30,9 +30,11 @@ class vehiculo(osv.Model):
  
     _columns = {
            'modelo': fields.char('Modelo', size=50,required=True),
-           'matricula': fields.char('Matricula', size=128,required=True),
+           'name': fields.char('Matricula', size=128,required=True),
            'fechaAdquisicion': fields.datetime('Fecha adquisicion', required=True, autodate = True),
            'fechaProximaRevision': fields.datetime('Fecha Proxima Revision', required=True, autodate = True),
            
            'transportista_id': fields.many2many('transportista','transp_vehic_rel','dni','matricula','Transportistas'),
         }
+    
+    _sql_constraints = [ ('id_vehiculo', 'unique (name)', 'Ya existe un vehiculo con esa matricula'),  ]

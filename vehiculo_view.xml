@@ -7,7 +7,7 @@
  			<field name="arch" type="xml">
  				<form string="Classes">
  					<field name="modelo" colspan="4"/>
- 					<field name="matricula" colspan="4"/>
+ 					<field name="name" colspan="4"/>
  					<field name="fechaAdquisicion" colspan="4"/>
  					<field name="fechaProximaRevision" colspan="4"/>
  					<field name="transportista_id" colspan="4"/>
@@ -21,7 +21,7 @@
  			<field name="arch" type="xml">
  				<tree string="tree_string">
  					<field name="modelo" />
- 					<field name="matricula" />
+ 					<field name="name" />
  					<field name="fechaAdquisicion" />
  					<field name="fechaProximaRevision" />
  					<field name="transportista_id" />

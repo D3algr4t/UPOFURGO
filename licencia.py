@@ -22,11 +22,28 @@
 
 from osv import osv
 from osv import fields
+from datetime import datetime
 
 class licencia(osv.Model):
     _name = 'licencia'
     _description = 'clase licencia'
+    
+    def _check_date(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):
+                    
+            if clase.fechaFinValidez < str(datetime.now().date()): 
+                return False
+        return True 
+    
+    def _check_anyos(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):
+                    
+            if clase.anyosExperiencia < 0: 
+                return False
+        return True 
+    
     _columns = {
+            'name': fields.char('ID', size=64, required=True),
             'tipo': fields.selection([
                 ('pesado','Transportes Pesados'),
                 ('ligero','Transportes Ligeros'),
@@ -37,3 +54,10 @@ class licencia(osv.Model):
             
             'transportista_id': fields.many2one('transportista', 'Transportista',required=True),
         }
+    
+    _constraints = [
+                    (_check_date, '¡ La fecha de validez no puede ser anterior a hoy !' , [ 'fechaFinValidez' ]),
+                    (_check_anyos, '¡ No puede tener un numero menor que 0 como experiencia !' , [ 'anyosExperiencia' ])
+                    ]
+    
+    _sql_constraints = [ ('id_licencia', 'unique (name)', 'Ya existe una licencia con ese ID'),  ]
