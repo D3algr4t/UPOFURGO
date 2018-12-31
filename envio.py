@@ -38,7 +38,7 @@ class envio(osv.Model):
             'fechaEnvio': fields.datetime('Fecha Envio', required=True, autodate = True),
             'fechaEstimadaEntrega': fields.datetime('Fecha Estimada de  Entrega', required=True, autodate = True),
            
-            'destinatario_id': fields.many2one('destinatario', 'Destinatario',required=True),
+            'destinatario_id': fields.many2one('destinatario', 'Destinatario'),
             'transportista_id': fields.many2one('transportista', 'Transportista'),
             'proveedor_id': fields.many2one('proveedor', 'Proveedor'),
             'bulto_id': fields.one2many('bulto','envio_id', 'Bultos'),

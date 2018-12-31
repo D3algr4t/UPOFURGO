@@ -20,13 +20,26 @@
 								<field name="licencia_id" colspan="4" />
 								<field name="envio_id" colspan="4" />
 								<field name="vehiculo_id" colspan="4" />
-								
 							</page>
 						</notebook>
 						</group>
 				</form>
 			</field>
 		</record>
+		
+		
+		<record model="ir.ui.view" id="view_gymclass_graph">
+			<field name="name">view_transportista_graph</field>
+			<field name="model">transportista</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Tipos de licencia de los transportistas" type="pie">
+					<field name="nombre" />
+					<field name="" />
+				</graph>
+			</field>
+		</record> 
+		
 		<record model="ir.ui.view" id="object_transportista_tree_view">
 			<field name="name">transportista.tree</field>
 			<field name="model">transportista</field>
@@ -59,7 +72,7 @@
 			<field name="name">transportistas</field>
 			<field name="res_model">transportista</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">form,tree,graph</field>
 		</record>
 		<menuitem id="transportistas_submenu" name="Transportistas"
 			parent="upofurgo" />
