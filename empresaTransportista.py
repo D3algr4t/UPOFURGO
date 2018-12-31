@@ -27,7 +27,7 @@ class empresatransportista(osv.Model):
     _name = 'empresa_transportista'
     _description = 'clase empresatransportista'
     _columns = {
-            'cif': fields.char('CIF', size=50),
+            'cif': fields.char('CIF', size=50,required=True),
             'nombre': fields.char('Nombre', size=128),
             'direccion': fields.char('Direccion',size=128),
             'direccionSede': fields.char('Direccion Sede',size=128),

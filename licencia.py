@@ -31,9 +31,9 @@ class licencia(osv.Model):
                 ('pesado','Transportes Pesados'),
                 ('ligero','Transportes Ligeros'),
                 ('alta_movilidad','Alta Movilidad'),
-                ],'Tipo de licencia'),
+                ],'Tipo de licencia',required=True),
             'fechaFinValidez': fields.datetime('Fecha validez', required=True, autodate = True),
             'anyosExperiencia': fields.integer('Anyos Experiencia', size=13),
             
-            'transportista_id': fields.many2one('transportista', 'Transportista'),
+            'transportista_id': fields.many2one('transportista', 'Transportista',required=True),
         }

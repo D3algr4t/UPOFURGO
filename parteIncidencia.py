@@ -34,5 +34,5 @@ class parteincidencia(osv.Model):
            'fechaResolucion': fields.datetime('Fecha Resolucion'),
            'solucionFacilitada': fields.char('Telefono', size=128),
            
-           'envio_id': fields.many2one('envio', 'Envio'),
+           'envio_id': fields.many2one('envio', 'Envio',required=True),
         }

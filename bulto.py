@@ -29,10 +29,10 @@ class bulto(osv.Model):
     _description = 'clase bulto'
  
     _columns = {
-           'identificador': fields.char('Identificador', size=50),
+           'identificador': fields.char('Identificador', size=50,required=True),
            'peso': fields.float('Peso', size=128),
            'descripcion': fields.char('Descripcion', size=50),
            'medidas': fields.char('Medidas', size=13),
            
-           'envio_id': fields.many2one('envio', 'Envio'),
+           'envio_id': fields.many2one('envio', 'Envio',required=True),
         }
