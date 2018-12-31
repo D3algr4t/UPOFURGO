@@ -22,10 +22,31 @@
 
 from osv import osv
 from osv import fields
+from datetime import datetime
 
 class envio(osv.Model):
     _name = 'envio'
     _description = 'clase envio'
+    
+    def _check_date_envio(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):
+                    
+            if clase.fechaEnvio < str(datetime.now().date()): 
+                return False
+        return True  
+    
+    def _check_date_entrega(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):        
+            if clase.fechaEstimadaEntrega < str(datetime.now().date()): 
+                return False
+        return True
+    
+    def _check_date_envio_entrega(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):        
+            if clase.fechaEnvio > clase.fechaEstimadaEntrega: 
+                return False
+        return True
+    
     _columns = {
             'id_envio': fields.integer('ID'),
             'tipoDeEnvio': fields.selection([
@@ -44,3 +65,11 @@ class envio(osv.Model):
             'bulto_id': fields.one2many('bulto','envio_id', 'Bultos'),
             'parteIncidencia_id': fields.one2many('parte_incidencia','envio_id', 'Partes de Incidencia'),
         }
+    
+    _constraints = [
+                    (_check_date_envio, '¡ La fecha de envio no puede ser anterior a hoy !' , [ 'fechaEnvio' ]),
+                    (_check_date_entrega, '¡ La fecha estimada de entrega no puede ser anterior a hoy !' , [ 'fechaEstimadaEntrega' ]),
+                    (_check_date_envio_entrega, '¡ La fecha de entrega no puede ser anterior a la de envio !' , [ 'fechaEstimadaEntrega' ])
+                    ]
+    
+    _sql_constraints = [ ('id_uniq', 'unique (id_envio)', 'Ya existe ese id'),  ]
