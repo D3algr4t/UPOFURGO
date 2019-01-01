@@ -7,7 +7,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Classes">
-					<field name="name" />
+					<field name="id_envio" />
 					<field name="tipoDeEnvio" />
 					<field name="estadoEnvio" />
 					<field name="fechaEnvio" on_change="onchange_fechaEnvio(fechaEnvio)" />
@@ -26,7 +26,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
-					<field name="name" />
+					<field name="id_envio" />
 					<field name="tipoDeEnvio" />
 					<field name="estadoEnvio" />
 					<field name="fechaEnvio" />
@@ -46,7 +46,7 @@
 			<field name="arch" type="xml">
 				<calendar string="Envios" color="id_envio" date_start="fechaEnvio"
 					date_stop="fechaEstimadaEntrega">
-					<field name="name" />
+					<field name="id_envio" />
 					<field name="destinatario_id" />
 				</calendar>
 			</field>

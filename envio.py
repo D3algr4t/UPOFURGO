@@ -54,7 +54,7 @@ class envio(osv.Model):
         return { 'value': { 'fechaEstimadaEntrega' : str(entrega) } }
     
     _columns = {
-            'name': fields.integer('ID',required=True),
+            'id_envio': fields.integer('ID',required=True),
             'tipoDeEnvio': fields.selection([
                 ('express','Express'),
                 ('lowCost','Lowcost'),
