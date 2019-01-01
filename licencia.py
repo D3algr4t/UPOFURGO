@@ -23,6 +23,9 @@
 from osv import osv
 from osv import fields
 from datetime import datetime
+from datetime import timedelta
+import time
+
 
 class licencia(osv.Model):
     _name = 'licencia'
@@ -41,6 +44,11 @@ class licencia(osv.Model):
             if clase.anyosExperiencia < 0: 
                 return False
         return True 
+    
+    def onchange_finValidez (self,cr,uid,ids): 
+        fin = datetime.strptime(time.strftime("%Y-%m-%d %H:%M:%S"),"%Y-%m-%d %H:%M:%S").date() + timedelta(days=365)
+        
+        return { 'value': { 'fechaFinValidez' : str(fin) } }
     
     _columns = {
             'name': fields.char('ID', size=64, required=True),
