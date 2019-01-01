@@ -6,7 +6,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Classes">
-					<field name="name" colspan="4" />
+					<field name="name" colspan="4" on_change="onchange_fecha()" />
 					<field name="fecha" colspan="4" />
 					<field name="descripcion" colspan="4" />
 					<field name="fechaResolucion" colspan="4" />

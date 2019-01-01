@@ -28,7 +28,7 @@ class proveedor(osv.Model):
     _name = 'proveedor'
     _description = 'clase proveedor'
  
-    def _enviosTotal(self, cr, uid, ids, field, arg,context=None):
+    def _enviosTotal(self, cr, uid, ids, field, arg, context=None):
         res = {}
         for clase in self.browse(cr,uid,ids,context=context):
             res[clase.cif] = len(clase.envio_id)

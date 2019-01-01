@@ -23,6 +23,7 @@
 from osv import osv
 from osv import fields
 from datetime import datetime
+import time
 
 class parteincidencia(osv.Model):
     
@@ -38,7 +39,7 @@ class parteincidencia(osv.Model):
     
     def _check_date_resolucion(self, cr, uid, ids):                    
         for clase in self.browse(cr, uid, ids): 
-            if clase.fechaResolucion != None:       
+            if clase.fechaResolucion:       
                 if clase.fechaResolucion < str(datetime.now().date()): 
                     return False
         return True
@@ -46,11 +47,13 @@ class parteincidencia(osv.Model):
     def _check_date_notificacion_entrega(self, cr, uid, ids):                    
         for clase in self.browse(cr, uid, ids):   
             
-            print(clase.fechaResolucion)
-            if clase.fechaResolucion != None:         
+            if clase.fechaResolucion:         
                 if clase.fecha > clase.fechaResolucion: 
                     return False
         return True
+    
+    def onchange_fecha (self,cr,uid,ids): 
+        return { 'value': { 'fecha' : str(time.strftime("%Y-%m-%d %H:%M:%S")) } }
  
     _columns = {
            'name': fields.char('ID', size=64, required=True),
