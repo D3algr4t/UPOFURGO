@@ -28,7 +28,9 @@ class proveedor(osv.Model):
     _name = 'proveedor'
     _description = 'clase proveedor'
  
-    def _enviosTotal(self, cr, uid, ids, field,arg,context=None):
+
+    def _enviosTotal(self, cr, uid, ids, field, arg, context=None):
+
         res = {}
         for prov in self.browse(cr,uid,ids):
             res[prov.name] = len(prov.envio_id)
@@ -37,9 +39,17 @@ class proveedor(osv.Model):
     _columns = {
            'name': fields.char('Nombre', size=50),
            'direccion': fields.char('Direccion', size=128),
-           'cif': fields.char('CIF', size=50,required=True),
+           'cif': fields.char('CIF', size=50, required=True),
            'telefono': fields.integer('Telefono', size=13),
            'envios_totales': fields.function(_enviosTotal, type='integer', string='Envios Totales', store = True),
            
            'envio_id': fields.one2many('envio','proveedor_id', 'Envios'),
         }
+    
+    _sql_constraints = [ ('id_proveedor', 'unique (cif)', 'Ya existe un proveedor con ese CIF'),  ]
+    
+    
+    
+    
+    
+    

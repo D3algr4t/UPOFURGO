@@ -22,17 +22,38 @@
 
 from osv import osv
 from osv import fields
+from datetime import datetime
 
 class vehiculo(osv.Model):
     
     _name = 'vehiculo'
     _description = 'clase vehiculo'
+    
+    def _check_date_revision(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):
+                    
+            if clase.fechaProximaRevision < str(datetime.now().date()): 
+                return False
+        return True  
+    
+    def _check_date_compra_revision(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):        
+            if clase.fechaAdquisicion > clase.fechaProximaRevision: 
+                return False
+        return True
  
     _columns = {
            'modelo': fields.char('Modelo', size=50,required=True),
-           'matricula': fields.char('Matricula', size=128,required=True),
+           'name': fields.char('Matricula', size=128,required=True),
            'fechaAdquisicion': fields.datetime('Fecha adquisicion', required=True, autodate = True),
            'fechaProximaRevision': fields.datetime('Fecha Proxima Revision', required=True, autodate = True),
            
            'transportista_id': fields.many2many('transportista','transp_vehic_rel','dni','matricula','Transportistas'),
         }
+    
+    _constraints = [
+                (_check_date_revision, '¡ La fecha de revision no puede ser anterior a hoy !' , [ 'fechaProximaRevision' ]),
+                (_check_date_compra_revision, '¡ La fecha de revision no puede ser anterior a la de compra !' , [ 'fechaProximaRevision' ])
+                ]
+    
+    _sql_constraints = [ ('id_vehiculo', 'unique (name)', 'Ya existe un vehiculo con esa matricula'),  ]

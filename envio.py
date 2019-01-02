@@ -23,6 +23,7 @@
 from osv import osv
 from osv import fields
 from datetime import datetime
+from datetime import timedelta
 
 class envio(osv.Model):
     _name = 'envio'
@@ -46,6 +47,11 @@ class envio(osv.Model):
             if clase.fechaEnvio > clase.fechaEstimadaEntrega: 
                 return False
         return True
+    
+    def onchange_fechaEnvio (self,cr,uid,ids,fechaEnvio): 
+        entrega = datetime.strptime(fechaEnvio,"%Y-%m-%d %H:%M:%S").date() + timedelta(days=3)
+        
+        return { 'value': { 'fechaEstimadaEntrega' : str(entrega) } }
     
     _columns = {
             'id_envio': fields.integer('ID',required=True),

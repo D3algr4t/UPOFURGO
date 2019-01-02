@@ -10,7 +10,7 @@
 					<field name="id_envio" />
 					<field name="tipoDeEnvio" />
 					<field name="estadoEnvio" />
-					<field name="fechaEnvio" />
+					<field name="fechaEnvio" on_change="onchange_fechaEnvio(fechaEnvio)" />
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
 					<field name="transportista_id" />

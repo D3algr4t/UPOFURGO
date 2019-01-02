@@ -1,40 +1,42 @@
 <openerp>
 	<data>
 		<record model="ir.ui.view" id="view_upofurgo_parte_incidencia_form">
- 			<field name="name">parte_incidencia.form</field>
- 			<field name="model">parte_incidencia</field>
- 			<field name="type">form</field>
- 			<field name="arch" type="xml">
- 				<form string="Classes">
- 					<field name="fecha" colspan="4"/>
- 					<field name="descripcion" colspan="4"/>
- 					<field name="fechaResolucion" colspan="4"/>
- 					<field name="solucionFacilitada" colspan="4"/>
- 					<field name="envio_id" colspan="4"/>
- 				</form>
- 			</field>
- 		</record>
+			<field name="name">parte_incidencia.form</field>
+			<field name="model">parte_incidencia</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Classes">
+					<field name="name" colspan="4" on_change="onchange_fecha()" />
+					<field name="fecha" colspan="4" />
+					<field name="descripcion" colspan="4" />
+					<field name="fechaResolucion" colspan="4" />
+					<field name="solucionFacilitada" colspan="4" />
+					<field name="envio_id" colspan="4" />
+				</form>
+			</field>
+		</record>
 		<record model="ir.ui.view" id="object_parte_incidencia_tree_view">
- 			<field name="name">parte_incidencia.tree</field>
- 			<field name="model">parte_incidencia</field>
- 			<field name="type">tree</field>
- 			<field name="arch" type="xml">
- 				<tree string="tree_string">
- 					<field name="fecha" />
- 					<field name="descripcion" />
- 					<field name="fechaResolucion" />
- 					<field name="solucionFacilitada" />
- 					<field name="envio_id" />
- 				</tree>
- 			</field>
- 		</record>
+			<field name="name">parte_incidencia.tree</field>
+			<field name="model">parte_incidencia</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="fecha" />
+					<field name="descripcion" />
+					<field name="fechaResolucion" />
+					<field name="solucionFacilitada" />
+					<field name="envio_id" />
+				</tree>
+			</field>
+		</record>
 		<record id="act_parte_incidencia" model="ir.actions.act_window">
 			<field name="name">parte_incidencia</field>
 			<field name="res_model">parte_incidencia</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		<menuitem id="ver_parte_incidencia_submenu" name="Ver partes de incidencias" parent="envios_submenu" 
-			action="act_parte_incidencia" />
+		<menuitem id="ver_parte_incidencia_submenu" name="Ver partes de incidencias"
+			parent="envios_submenu" action="act_parte_incidencia" />
 	</data>
 </openerp> 
