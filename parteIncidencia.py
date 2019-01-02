@@ -22,13 +22,41 @@
 
 from osv import osv
 from osv import fields
+from datetime import datetime
+import time
 
 class parteincidencia(osv.Model):
     
     _name = 'parte_incidencia'
     _description = 'clase parte_incidencia'
+    
+    def _check_date(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):
+                    
+            if clase.fecha < str(datetime.now().date()): 
+                return False
+        return True  
+    
+    def _check_date_resolucion(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids): 
+            if clase.fechaResolucion:       
+                if clase.fechaResolucion < str(datetime.now().date()): 
+                    return False
+        return True
+    
+    def _check_date_notificacion_entrega(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):   
+            
+            if clase.fechaResolucion:         
+                if clase.fecha > clase.fechaResolucion: 
+                    return False
+        return True
+    
+    def onchange_fecha (self,cr,uid,ids): 
+        return { 'value': { 'fecha' : str(time.strftime("%Y-%m-%d %H:%M:%S")) } }
  
     _columns = {
+           'name': fields.char('ID', size=64, required=True),
            'fecha': fields.datetime('Fecha', required=True, autodate = True),
            'descripcion': fields.char('Direccion', size=128),
            'fechaResolucion': fields.datetime('Fecha Resolucion'),
@@ -36,3 +64,11 @@ class parteincidencia(osv.Model):
            
            'envio_id': fields.many2one('envio', 'Envio',required=True),
         }
+    
+    _constraints = [
+                    (_check_date, '¡ La fecha de notificacion no puede ser anterior a hoy !' , [ 'fecha' ]),
+                    (_check_date_resolucion, '¡ La fecha de resolucion de entrega no puede ser anterior a hoy !' , [ 'fechaResolucion' ]),
+                    (_check_date_notificacion_entrega, '¡ La fecha de resolucion no puede ser anterior a la de notificacion !' , [ 'fechaResolucion' ])
+                    ]
+    
+    _sql_constraints = [ ('id_incidencia', 'unique (name)', 'Ya existe una parte de Incidencia con ese ID'),  ]

@@ -26,10 +26,6 @@
 				</form>
 			</field>
 		</record>
-		
-		
-	
-		
 		<record model="ir.ui.view" id="object_transportista_tree_view">
 			<field name="name">transportista.tree</field>
 			<field name="model">transportista</field>

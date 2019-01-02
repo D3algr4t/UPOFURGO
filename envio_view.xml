@@ -10,7 +10,7 @@
 					<field name="id_envio" />
 					<field name="tipoDeEnvio" />
 					<field name="estadoEnvio" />
-					<field name="fechaEnvio" />
+					<field name="fechaEnvio" on_change="onchange_fechaEnvio(fechaEnvio)" />
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
 					<field name="transportista_id" />
@@ -51,11 +51,23 @@
 				</calendar>
 			</field>
 		</record>
+		
+		<record model="ir.ui.view" id="view_upofurgo_envio_gantt">
+			<field name="name">envio.gantt</field>
+			<field name="model">envio</field>
+			<field name="type">gantt</field>
+			<field name="arch" type="xml">
+				<gantt color="id_envio" date_start="fechaEnvio" string="Envios" date_stop="fehaEstimadaEntrega">
+					
+				</gantt>
+			</field>
+		</record>
+		
 		<record id="act_envio" model="ir.actions.act_window">
 			<field name="name">Envios Upofugo</field>
 			<field name="res_model">envio</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree,calendar</field>
+			<field name="view_mode">form,tree,calendar,gantt</field>
 		</record>
 		<menuitem id="upofurgo" name="Upofurgo" action="act_envio" />
 		<menuitem name="Envios" id="envios_submenu" parent="upofurgo"

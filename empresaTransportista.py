@@ -22,16 +22,38 @@
 
 from osv import osv
 from osv import fields
+from datetime import datetime
+from datetime import timedelta
+import time
 
 class empresatransportista(osv.Model):
     _name = 'empresa_transportista'
     _description = 'clase empresatransportista'
+    
+    def _check_date(self, cr, uid, ids):                    
+        for clase in self.browse(cr, uid, ids):
+                    
+            if clase.finContrato < str(datetime.now().date()): 
+                return False
+        return True  
+    
+    def onchange_finContrato (self,cr,uid,ids): 
+        fin = datetime.strptime(time.strftime("%Y-%m-%d %H:%M:%S"),"%Y-%m-%d %H:%M:%S").date() + timedelta(days=1095)
+        
+        return { 'value': { 'finContrato' : str(fin) } }
+    
     _columns = {
-            'cif': fields.char('CIF', size=50,required=True),
+            'cif': fields.char('CIF', size=50, required=True),
             'name': fields.char('Nombre', size=128),
-            'direccion': fields.char('Direccion',size=128),
-            'direccionSede': fields.char('Direccion Sede',size=128),
-            'finContrato': fields.datetime('Fin Contrato', required=True, autodate = True),
+            'direccion': fields.char('Direccion', size=128),
+            'direccionSede': fields.char('Direccion Sede', size=128),
+            'finContrato': fields.datetime('Fin Contrato', required=True, autodate=True),
             
-            'transportista_id': fields.one2many('transportista','empresa_id', 'Empleados'),
+            'transportista_id': fields.one2many('transportista', 'empresa_id', 'Empleados'),
         }
+    
+    _constraints = [
+                    (_check_date, '¡ La fecha de fin de contrato no puede ser anterior a hoy !' , [ 'finContrato' ]),
+                    ]
+    
+    _sql_constraints = [ ('id_empresa', 'unique (cif)', 'Ya existe ese CIF'), ]

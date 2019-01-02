@@ -37,3 +37,5 @@ class destinatario(osv.Model):
            
            'envio_id': fields.one2many('envio','destinatario_id', 'Envios'),
         }
+    
+    _sql_constraints = [ ('id_destinatario', 'unique (dni)', 'No puede haber dos destinatarios que tengan el mismo DNI'),  ]

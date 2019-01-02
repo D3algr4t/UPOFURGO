@@ -36,3 +36,5 @@ class transportista(osv.Model):
             'empresa_id': fields.many2one('empresa_transportista', 'Empresa',required=True),
             'vehiculo_id': fields.many2many('vehiculo','transp_vehic_rel','matricula','dni','Vehiculos'),
         }
+    
+    _sql_constraints = [ ('id_transportista', 'unique (dni)', 'Ya existe un transportista con ese DNI'),  ]

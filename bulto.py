@@ -36,3 +36,5 @@ class bulto(osv.Model):
            
            'envio_id': fields.many2one('envio', 'Envio',required=True),
         }
+    
+    _sql_constraints = [ ('id_bulto', 'unique (identificador)', 'Ya existe ese id'),  ]
