@@ -34,8 +34,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">form,tree</field>
 		</record>
-		<menuitem id="licencia_submenu" name="Licencia" parent="upofurgo" />
 		<menuitem id="ver_licencias_submenu" name="Ver Licencias"
-			parent="licencia_submenu" action="act_licencia" />
+			parent="transportistas_submenu" action="act_licencia" />
 	</data>
 </openerp> 
