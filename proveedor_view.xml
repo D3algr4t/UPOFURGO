@@ -19,7 +19,7 @@
 			<field name="model">proveedor</field>
 			<field name="type">graph</field>
 			<field name="arch" type="xml">
-				<graph string="Numero de envios por proveedor" type="bar">
+				<graph string="Numero de envios por proveedor" >
 					<field name="name" />
 					<field name="envios_totales" />
 				</graph>
