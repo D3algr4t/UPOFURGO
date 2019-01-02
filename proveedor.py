@@ -33,7 +33,7 @@ class proveedor(osv.Model):
 
         res = {}
         for prov in self.browse(cr,uid,ids):
-            res[prov.name] = len(prov.envio_id)
+            res[prov.id] = len(prov.envio_id)
         return res  
  
     _columns = {

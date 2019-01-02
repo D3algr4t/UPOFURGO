@@ -66,17 +66,18 @@ class envio(osv.Model):
                 ('en_camino','En camino'),
                 ('enviado','Enviado'),
                 ('recibido','Recibido'),
-                ],'Tipo de Envio',required=True),
+                ],'Estado de Envio',required=True),
             'fechaEnvio': fields.datetime('Fecha Envio', required=True, autodate = True),
             'fechaEstimadaEntrega': fields.datetime('Fecha Estimada de  Entrega', required=True, autodate = True),
            
-
             'destinatario_id': fields.many2one('destinatario', 'Destinatario',required=True),
             'transportista_id': fields.many2one('transportista', 'Transportista',required=True),
             'proveedor_id': fields.many2one('proveedor', 'Proveedor'),
             'bulto_id': fields.one2many('bulto','envio_id', 'Bultos',required=True),
             'parteIncidencia_id': fields.one2many('parte_incidencia','envio_id', 'Partes de Incidencia'),
         }
+    
+    _defaults = {'estadoEnvio':'preparado'}
     
     _constraints = [
                     (_check_date_envio, '¡ La fecha de envio no puede ser anterior a hoy !' , [ 'fechaEnvio' ]),
