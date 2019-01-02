@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wkf_envio" model="workflow">
+			<field name="name">user.basic</field>
+			<field name="osv">envio</field>
+			<field name="on_create">True</field>
+		</record>
+		
+		
+		<record id="act_envio_preparado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf" />
+			<field name="flow_start">True</field>
+			<field name="name">Preparado</field>
+			<field name="kind">dummy</field>
+		</record>
+		<record id="act_envio_camino" model="workflow.activity">
+			<field name="wkf_id" ref="wkf" />
+			<field name="name">En camino</field>
+			<field name="action">write({'estadoEnvio':'camino'})</field>
+			<field name="kind">function</field>
+		</record>
+		<record id="act_envio_reparto" model="workflow.activity">
+			<field name="wkf_id" ref="wkf" />
+			<field name="name">En reparto</field>
+			<field name="action">write({'estadoEnvio':'reparto'})</field>
+			<field name="kind">function</field>
+		</record>
+		<record id="act_envio_recibido" model="workflow.activity">
+			<field name="wkf_id" ref="wkf" />
+			<field name="flow_stop">True</field>
+			<field name="name">Recibido</field>
+			<field name="action">write({'estadoEnvio':'recibido'})</field>
+			<field name="kind">function</field>
+		</record>
+		
+		
+		<record id="trans_preparado_camino" model="workflow.transition">
+			<field name="act_from" ref="act_envio_preparado" />
+			<field name="act_to" ref="act_envio_camino" />
+			<field name="signal">Preparado</field>
+		</record>
+		<record id="trans_camino_reparto" model="workflow.transition">
+			<field name="act_from" ref="act_envio_camino" />
+			<field name="act_to" ref="act_envio_reparto" />
+			<field name="signal">Entregar</field>
+		</record>
+		<record id="trans_reparto_recibido" model="workflow.transition">
+			<field name="act_from" ref="act_envio_reparto" />
+			<field name="act_to" ref="act_envio_recibido" />
+			<field name="signal">Entregado</field>
+		</record>
+	</data>
+</openerp>
