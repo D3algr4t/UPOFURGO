@@ -18,10 +18,10 @@
 					<field name="parteIncidencia_id" colspan="4" />
 					<separator string="Worfklow" colspan="4" />
 					<field name='state' widget='statusbar' statusbar_visible="preparado,camino,reparto,recibido" 
-						statusbar_colors='{"preparado":"blue","camino": "yellow","reparto": "orange","recibido": "green"}'/>
-					<button name="Preparado" states="preparado" string="Preparado" colspan="1" icon="gtk-ok" />
-					<button name="Entregar" states="camino" string="Entregar" colspan="1" icon="gtk-ok" />
-					<button name="Entregado" states="reparto" string="Entregado" colspan="1" icon="gtk-apply" />
+						statusbar_colors='{"preparado":"blue","camino": "yellow","reparto": "orange","recibido": "green"}' colspan="4"/>
+					<button name="Preparado" states="preparado" string="Preparado" colspan="4" icon="gtk-ok" />
+					<button name="Entregar" states="camino" string="Entregar" colspan="4" icon="gtk-ok" />
+					<button name="Entregado" states="reparto" string="Entregado" colspan="4" icon="gtk-apply" />
 				</form>
 			</field>
 		</record>
