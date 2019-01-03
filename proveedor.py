@@ -39,7 +39,7 @@ class proveedor(osv.Model):
            'direccion': fields.char('Direccion', size=128),
            'cif': fields.char('CIF', size=50, required=True),
            'telefono': fields.integer('Telefono', size=13),
-           'envios_totales': fields.function(_enviosTotal, type='integer', string='Envios_totales', store = True),
+           'envios_totales': fields.function(_enviosTotal, type='integer', string='Envios Totales', store = True),
            
            'envio_id': fields.one2many('envio','proveedor_id', 'Envios'),
         }

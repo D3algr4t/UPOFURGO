@@ -42,6 +42,34 @@
 				</tree>
 			</field>
 		</record>
+		<record model="ir.ui.view" id="object_transportista_kanban_view">
+            <field name="name">transportista.kanban</field>
+            <field name="model">transportista</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="empresa_id">
+                    <field name="name" />
+                    <field name="dni" />
+                    <field name="empresa_id" />
+                    <templates>
+                    <t t-name="kanban-box">
+                            <div class="oe_transportista_dni">
+                                 <a type="edit">
+                                            dni: <field name="dni"></field>
+                                        </a>
+                                <div class="oe_transportista_name">
+                                    <h3>
+                                        <a type="edit">
+                                            <field name="name"></field>
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 		<record model="ir.ui.view" id="view_upofurgo_transportista_search">
 			<field name="name">view_upofurgo_transportista_search</field>
 			<field name="model">transportista</field>
@@ -58,7 +86,7 @@
 			<field name="name">transportistas</field>
 			<field name="res_model">transportista</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">kanban,form,tree</field>
 		</record>
 		<menuitem id="transportistas_submenu" name="Transportistas"
 			parent="upofurgo" />

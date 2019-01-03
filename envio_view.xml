@@ -14,7 +14,6 @@
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
 					<field name="transportista_id" />
-					<field name="proveedor_id" />
 					<field name="bulto_id" colspan="4" />
 					<field name="parteIncidencia_id" colspan="4" />
 				</form>
@@ -33,7 +32,6 @@
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
 					<field name="transportista_id" />
-					<field name="proveedor_id" />
 					<field name="bulto_id" />
 					<field name="parteIncidencia_id" />
 				</tree>
@@ -49,17 +47,6 @@
 					<field name="id_envio" />
 					<field name="destinatario_id" />
 				</calendar>
-			</field>
-		</record>
-		
-		<record model="ir.ui.view" id="view_upofurgo_envio_gantt">
-			<field name="name">envio.gantt</field>
-			<field name="model">envio</field>
-			<field name="type">gantt</field>
-			<field name="arch" type="xml">
-				<gantt color="id_envio" date_start="fechaEnvio" string="Envios" date_stop="fehaEstimadaEntrega">
-					
-				</gantt>
 			</field>
 		</record>
 		
