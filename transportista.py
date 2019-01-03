@@ -26,6 +26,11 @@ from osv import fields
 class transportista(osv.Model):
     _name = 'transportista'
     _description = 'clase transportista'
+    
+    def limpiar_vehiculos(self,cr,uid,ids,context=None):
+        res = self.write(cr,uid,ids,{'vehiculo_id':[ (5, ) ]}, context=None)
+        return res 
+    
     _columns = {
             'dni': fields.char('DNI', size=50,required=True),
             'name': fields.char('Nombre', size=128),

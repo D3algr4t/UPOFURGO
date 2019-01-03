@@ -20,6 +20,10 @@
 								<field name="licencia_id" colspan="4" />
 								<field name="envio_id" colspan="4" />
 								<field name="vehiculo_id" colspan="4" />
+								<newline></newline>
+								<separator></separator>
+								<button name="limpiar_vehiculos" string="Limpiar registro vehiculos"
+									type="object"></button> 
 							</page>
 						</notebook>
 						</group>
