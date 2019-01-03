@@ -7,15 +7,20 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Classes">
-					<field name="id_envio" />
-					<field name="tipoDeEnvio" />
-					<field name="estadoEnvio" />
-					<field name="fechaEnvio" on_change="onchange_fechaEnvio(fechaEnvio)" />
-					<field name="fechaEstimadaEntrega" />
-					<field name="destinatario_id" />
-					<field name="transportista_id" />
+					<field name="id_envio" colspan="4"/>
+					<field name="tipoDeEnvio" colspan="4"/>
+					<field name="fechaEnvio" on_change="onchange_fechaEnvio(fechaEnvio)" colspan="4" />
+					<field name="fechaEstimadaEntrega" colspan="4"/>
+					<field name="destinatario_id" colspan="4"/>
+					<field name="transportista_id" colspan="4"/>
 					<field name="bulto_id" colspan="4" />
 					<field name="parteIncidencia_id" colspan="4" />
+					<separator string="Worfklow" colspan="4" />
+					<field name='state' widget='statusbar' statusbar_visible="preparado,camino,reparto,recibido" 
+						statusbar_colors='{"preparado":"blue","en_camino": "yellow","reparto": "orange","recibido": "green"}'/>
+					<button name="Preparado" states="preparado" string="Preparado" colspan="1" icon="gtk-ok" />
+					<button name="Entregar" states="camino" string="Entregar" colspan="1" icon="gtk-ok" />
+					<button name="Entregado" states="reparto" string="Entregado" colspan="1" icon="gtk-apply" />
 				</form>
 			</field>
 		</record>
@@ -27,7 +32,7 @@
 				<tree string="tree_string">
 					<field name="id_envio" />
 					<field name="tipoDeEnvio" />
-					<field name="estadoEnvio" />
+					<field name="state" />
 					<field name="fechaEnvio" />
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
