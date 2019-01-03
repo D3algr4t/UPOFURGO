@@ -61,10 +61,10 @@ class envio(osv.Model):
                 ('largaDistancia','LargaDistancia'),
                 ('especial','Especial'),
                 ],'Tipo de Envio',required=True),
-            'estadoEnvio': fields.selection([
+            'state': fields.selection([
                 ('preparado','Preparado'),
-                ('en_camino','En camino'),
-                ('enviado','Enviado'),
+                ('camino','En camino'),
+                ('reparto','En reparto'),
                 ('recibido','Recibido'),
                 ],'Estado de Envio',required=True),
             'fechaEnvio': fields.datetime('Fecha Envio', required=True, autodate = True),
@@ -77,7 +77,7 @@ class envio(osv.Model):
             'parteIncidencia_id': fields.one2many('parte_incidencia','envio_id', 'Partes de Incidencia'),
         }
     
-    _defaults = {'estadoEnvio':'preparado'}
+    _defaults = {'state':'preparado'}
     
     _constraints = [
                     (_check_date_envio, '¡ La fecha de envio no puede ser anterior a hoy !' , [ 'fechaEnvio' ]),
