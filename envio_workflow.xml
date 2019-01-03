@@ -5,31 +5,31 @@
 			<field name="name">user.basic</field>
 			<field name="osv">envio</field>
 			<field name="on_create">True</field>
-		</record>		
+		</record>	
 		<record id="act_envio_preparado" model="workflow.activity">
 			<field name="wkf_id" ref="wkf_envio" />
 			<field name="flow_start">True</field>
-			<field name="name">preparado</field>
+			<field name="name">Preparado</field>
 			<field name="kind">dummy</field>
 		</record>
 		<record id="act_envio_camino" model="workflow.activity">
 			<field name="wkf_id" ref="wkf_envio" />
-			<field name="name">camino</field>
-			<field name="action">write({'estadoEnvio':'camino'})</field>
+			<field name="name">Camino</field>
 			<field name="kind">function</field>
+			<field name="action">write({'state':'camino'})</field>
 		</record>
 		<record id="act_envio_reparto" model="workflow.activity">
 			<field name="wkf_id" ref="wkf_envio" />
-			<field name="name">reparto</field>
-			<field name="action">write({'estadoEnvio':'reparto'})</field>
+			<field name="name">Reparto</field>
 			<field name="kind">function</field>
+			<field name="action">write({'state':'reparto'})</field>
 		</record>
 		<record id="act_envio_recibido" model="workflow.activity">
 			<field name="wkf_id" ref="wkf_envio" />
-			<field name="flow_stop">True</field>
-			<field name="name">recibido</field>
-			<field name="action">write({'estadoEnvio':'recibido'})</field>
+			<field name="name">Recibido</field>
 			<field name="kind">function</field>
+			<field name="action">write({'state':'recibido'})</field>
+			<field name="flow_stop">True</field>
 		</record>		
 		<record id="trans_preparado_camino" model="workflow.transition">
 			<field name="act_from" ref="act_envio_preparado" />

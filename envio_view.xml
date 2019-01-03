@@ -13,11 +13,12 @@
 					<field name="fechaEstimadaEntrega" colspan="4"/>
 					<field name="destinatario_id" colspan="4"/>
 					<field name="transportista_id" colspan="4"/>
+					<field name="proveedor_id" colspan="4"/>
 					<field name="bulto_id" colspan="4" />
 					<field name="parteIncidencia_id" colspan="4" />
 					<separator string="Worfklow" colspan="4" />
 					<field name='state' widget='statusbar' statusbar_visible="preparado,camino,reparto,recibido" 
-						statusbar_colors='{"preparado":"blue","en_camino": "yellow","reparto": "orange","recibido": "green"}'/>
+						statusbar_colors='{"preparado":"blue","camino": "yellow","reparto": "orange","recibido": "green"}'/>
 					<button name="Preparado" states="preparado" string="Preparado" colspan="1" icon="gtk-ok" />
 					<button name="Entregar" states="camino" string="Entregar" colspan="1" icon="gtk-ok" />
 					<button name="Entregado" states="reparto" string="Entregado" colspan="1" icon="gtk-apply" />
@@ -37,6 +38,7 @@
 					<field name="fechaEstimadaEntrega" />
 					<field name="destinatario_id" />
 					<field name="transportista_id" />
+					<field name="proveedor_id" />
 					<field name="bulto_id" />
 					<field name="parteIncidencia_id" />
 				</tree>
@@ -52,6 +54,17 @@
 					<field name="id_envio" />
 					<field name="destinatario_id" />
 				</calendar>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upofurgo_envio_gantt">
+			<field name="name">envio.gantt</field>
+			<field name="model">envio</field>
+			<field name="type">gantt</field>
+			<field name="arch" type="xml">
+				<gantt color="id_envio" date_start="fechaEnvio" string="Envios" date_stop="fehaEstimadaEntrega">
+					
+				</gantt>
 			</field>
 		</record>
 		
