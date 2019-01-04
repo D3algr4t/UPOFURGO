@@ -41,7 +41,7 @@
               'parteIncidencia_view.xml',
               'envio_workflow.xml'
             ],
-    'demo_xml': [],
+    'demo_xml': ['upoFurgo_demo.xml'],
     'installable': True,
     'active': False,
 }

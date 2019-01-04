@@ -73,7 +73,7 @@ class envio(osv.Model):
             'destinatario_id': fields.many2one('destinatario', 'Destinatario',required=True),
             'transportista_id': fields.many2one('transportista', 'Transportista',required=True),
             'proveedor_id': fields.many2one('proveedor', 'Proveedor'),
-            'bulto_id': fields.one2many('bulto','envio_id', 'Bultos',required=True),
+            'bulto_id': fields.one2many('bulto','envio_id', 'Bultos'),
             'parteIncidencia_id': fields.one2many('parte_incidencia','envio_id', 'Partes de Incidencia'),
         }
     

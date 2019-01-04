@@ -38,7 +38,7 @@ class transportista(osv.Model):
             
             'envio_id': fields.one2many('envio','transportista_id', 'Envios'),
             'licencia_id': fields.one2many('licencia','transportista_id', 'licencias'),
-            'empresa_id': fields.many2one('empresa_transportista', 'Empresa',required=True),
+            'empresa_id': fields.many2one('empresa_transportista', 'Empresa'),
             'vehiculo_id': fields.many2many('vehiculo','transp_vehic_rel','matricula','dni','Vehiculos'),
         }
     
