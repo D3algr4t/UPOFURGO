@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<openerp>
+	<data noupdate="1">
+		<record id="destinatario00" model="destinatario">
+			<field name="name">pedrito eldelospalotes</field>
+			<field name="dni">12345678A</field>
+			<field name="direccion">algarrobo</field>
+			<field name="codigoPostal">41007</field>
+			<field name="telefonoContacto">629584842</field>
+		</record>
+		<record id="destinatario01" model="destinatario">
+			<field name="name">pepe tufillo</field>
+			<field name="dni">12345678B</field>
+			<field name="direccion">la juliana</field>
+			<field name="codigoPostal">41007</field>
+			<field name="telefonoContacto">629584842</field>
+		</record>
+		<record id="destinatario02" model="destinatario">
+			<field name="name">tengoal morranas</field>
+			<field name="dni">12345678C</field>
+			<field name="direccion">almensilla</field>
+			<field name="codigoPostal">41005</field>
+			<field name="telefonoContacto">629584842</field>
+		</record>
+		<record id="destinatario03" model="destinatario">
+			<field name="name">medu elemucho</field>
+			<field name="dni">12345678D</field>
+			<field name="direccion">su casa</field>
+			<field name="codigoPostal">410</field>
+			<field name="telefonoContacto">6295865656</field>
+		</record>
+		<record id="destinatario04" model="destinatario">
+			<field name="name">merizao erpelo</field>
+			<field name="dni">12345678E</field>
+			<field name="direccion">calle infierno</field>
+			<field name="codigoPostal">41015</field>
+			<field name="telefonoContacto">629584333</field>
+		</record>
+
+
+		<record id="transportista00" model="transportista">
+			<field name="name">pepetrans</field>
+			<field name="dni">12345678A</field>
+			<field name="telefonoMovil">629584333</field>
+			<!-- <field name="empresa_id" ref="empresa00"></field> -->
+		</record>
+		<record id="transportista01" model="transportista">
+			<field name="name">manutrans</field>
+			<field name="dni">12345678E</field>
+			<field name="telefonoMovil">629584333</field>
+			<!--<field name="empresa_id" ref="empresa00"></field> -->
+		</record>
+		<record id="transportista02" model="transportista">
+			<field name="name">juliantrans</field>
+			<field name="dni">12345678D</field>
+			<field name="telefonoMovil">629584333</field>
+			<!--<field name="empresa_id" ref="empresa00"></field> -->
+		</record>
+		<record id="transportista03" model="transportista">
+			<field name="name">carlostrans</field>
+			<field name="dni">12345678F</field>
+			<field name="telefonoMovil">629584333</field>
+			<!--<field name="empresa_id" ref="empresa01"></field> -->
+		</record>
+
+
+		<record id="empresa00" model="empresa_transportista">
+			<field name="name">cutreAmazon</field>
+			<field name="cif">1234A</field>
+			<field name="direccionSede">aqui cerca</field>
+			<field name="direccion">calle infierno</field>
+			<field name="finContrato">16/12/2030 15:00:00</field>
+			<field name="transportista_id"
+				eval="[(6, 0, [transportista00, transportista01,transportista02, ])]"></field>
+		</record>
+		<record id="empresa01" model="empresa_transportista">
+			<field name="name">trasportesPepito</field>
+			<field name="cif">1235B</field>
+			<field name="direccionSede">aqui lejos</field>
+			<field name="direccion">calle auxilio</field>
+			<field name="finContrato">16/12/2030 15:00:00</field>
+			<field name="transportista_id" eval="[(6, 0, [transportista03, ])]"></field>
+		</record>
+
+
+
+
+		<record id="licencia00" model="licencia">
+			<field name="name">camion</field>
+			<field name="tipo">pesado</field>
+			<field name="fechaFinValidez">16/12/2020 15:00:00</field>
+			<field name="anyosExperiencia">4</field>
+			<field name="transportista_id" ref="transportista00"></field>
+		</record>
+		<record id="licencia01" model="licencia">
+			<field name="name">moto</field>
+			<field name="tipo">ligero</field>
+			<field name="fechaFinValidez">16/12/2020 15:00:00</field>
+			<field name="anyosExperiencia">4</field>
+			<field name="transportista_id" ref="transportista01"></field>
+		</record>
+
+		<record id="envio00" model="envio">
+			<field name="id_envio">50</field>
+			<field name="tipoDeEnvio">express</field>
+			<field name="state">preparado</field>
+			<field name="fechaEnvio">28/01/2019 15:00:00</field>
+			<field name="fechaEstimadaEntrega">16/12/2020 15:00:00</field>
+			<field name="destinatario_id" ref="destinatario00"></field>
+			<field name="transportista_id" ref="transportista00"></field>
+		</record>
+		<record id="envio01" model="envio">
+			<field name="id_envio">51</field>
+			<field name="tipoDeEnvio">express</field>
+			<field name="state">preparado</field>
+			<field name="fechaEnvio">28/01/2019 15:00:00</field>
+			<field name="fechaEstimadaEntrega">16/12/2020 15:00:00</field>
+			<field name="destinatario_id" ref="destinatario01"></field>
+			<field name="transportista_id" ref="transportista01"></field>
+		</record>
+
+		<record id="bulto00" model="bulto">
+			<field name="identificador">123456</field>
+			<field name="envio_id" ref="envio00" />
+		</record>
+		<record id="bulto01" model="bulto">
+			<field name="identificador">1234567</field>
+			<field name="envio_id" ref="envio01" />
+		</record>
+
+		<record id="vehiculo00" model="vehiculo">
+			<field name="modelo">renault 3</field>
+			<field name="name">el que no frena bien</field>
+			<field name="fechaAdquisicion">16/12/2019 15:00:00</field>
+			<field name="fechaProximaRevision">16/12/2020 15:00:00</field>
+		</record>
+		<record id="vehiculo01" model="vehiculo">
+			<field name="modelo">renault 4</field>
+			<field name="name">el que no pita</field>
+			<field name="fechaAdquisicion">16/12/2019 15:00:00</field>
+			<field name="fechaProximaRevision">16/12/2020 15:00:00</field>
+		</record>
+	</data>
+</openerp>
